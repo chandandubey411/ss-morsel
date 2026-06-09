@@ -1,3 +1,334 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ==============================
+   GLOBAL STYLES - SS MORSEL
+============================== */
+
+:root {
+  --primary: #0B3D91;
+  --secondary: #1E824C;
+  --accent: #1E824C;
+  --navy: #081C3A;
+  --light: #F8FAFC;
+  --white: #FFFFFF;
+  --gradient-1: #0B3D91;
+  --gradient-2: #081C3A;
+  --gradient-3: #1E824C;
+  --gradient-4: #0B3D91;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  background-color: #FFFFFF;
+  color: #1a2744;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==============================
+   CUSTOM SCROLLBAR
+============================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* ==============================
+   SCROLL PROGRESS BAR
+============================== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--primary);
+  z-index: 9999;
+  transform-origin: left;
+}
+
+/* ==============================
+   GLASSMORPHISM
+============================== */
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(8, 28, 58, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(11, 61, 145, 0.1);
+  box-shadow: 0 8px 32px rgba(11, 61, 145, 0.12);
+}
+
+/* ==============================
+   GRADIENT TEXT
+============================== */
+.gradient-text {
+  color: var(--secondary);
+}
+
+.gradient-text-accent {
+  color: var(--secondary);
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+.btn-primary {
+  @apply bg-primary text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 relative overflow-hidden;
+  box-shadow: 0 4px 20px rgba(11, 61, 145, 0.3);
+}
+.btn-primary:hover {
+  @apply bg-navy;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(11, 61, 145, 0.4);
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300;
+  box-shadow: 0 4px 20px rgba(0, 195, 137, 0.3);
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 195, 137, 0.5);
+}
+
+.btn-outline {
+  @apply border-2 border-white text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300;
+}
+.btn-outline:hover {
+  @apply bg-white text-primary;
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   SECTION STYLES
+============================== */
+.section-padding {
+  @apply py-20 lg:py-28;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* ==============================
+   ANIMATED BACKGROUND SHAPES
+============================== */
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* ==============================
+   CARD HOVER EFFECTS
+============================== */
+.service-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(11, 61, 145, 0.2);
+}
+
+/* ==============================
+   INFINITE MARQUEE
+============================== */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 35s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ==============================
+   LOADER
+============================== */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #081C3A;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==============================
+   PROCESS TIMELINE
+============================== */
+.timeline-connector {
+  background: var(--primary);
+}
+
+/* ==============================
+   HERO PARTICLES
+============================== */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ==============================
+   COMPARISON SLIDER
+============================== */
+.comparison-slider {
+  position: relative;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+}
+
+/* ==============================
+   SWIPER CUSTOM
+============================== */
+.swiper-pagination-bullet {
+  background: #0B3D91 !important;
+  opacity: 0.4;
+}
+.swiper-pagination-bullet-active {
+  background: #00C389 !important;
+  opacity: 1;
+}
+
+/* ==============================
+   MAGNETIC BUTTON
+============================== */
+.magnetic {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==============================
+   SECTION REVEAL
+============================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==============================
+   LIGHTBOX
+============================== */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 28, 58, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+/* ==============================
+   MASONRY GRID
+============================== */
+.masonry-grid {
+  column-count: 3;
+  column-gap: 16px;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+@media (max-width: 1024px) {
+  .masonry-grid { column-count: 2; }
+}
+@media (max-width: 640px) {
+  .masonry-grid { column-count: 1; }
+}
+
+/* ==============================
+   GLOW EFFECTS
+============================== */
+.glow-primary {
+  box-shadow: 0 0 40px rgba(11, 61, 145, 0.3);
+}
+.glow-secondary {
+  box-shadow: 0 0 40px rgba(0, 195, 137, 0.3);
+}
+.glow-accent {
+  box-shadow: 0 0 40px rgba(255, 138, 0, 0.3);
+}
+
+/* ==============================
+   UNDERLINE ANIMATION
+============================== */
+.animated-underline {
+  position: relative;
+}
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+/* ==============================
+   FORM STYLES
+============================== */
+.form-input {
+  @apply w-full px-5 py-4 rounded-xl border border-gray-200 bg-white text-gray-800 font-inter text-sm transition-all duration-300 outline-none;
+}
+.form-input:focus {
+  border-color: #0B3D91;
+  box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.1);
+}
+
+/* ==============================
+   STATS CARD ANIMATION
+============================== */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

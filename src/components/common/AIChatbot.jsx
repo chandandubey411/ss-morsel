@@ -378,7 +378,7 @@ const AIChatbot = ({ activeChat, setActiveChat }) => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-[4.25rem] sm:bottom-[5.25rem] right-4 sm:right-5 w-11 h-11 sm:w-14 sm:h-14 rounded-full shadow-xl flex items-center justify-center z-[199] ${
+        className={`fixed bottom-4 left-4 sm:left-auto sm:right-24 sm:bottom-5 w-11 h-11 sm:w-14 sm:h-14 rounded-full shadow-xl flex items-center justify-center z-[199] ${
           isOpen || activeChat === 'whatsapp' ? 'hidden' : ''
         }`}
         style={{

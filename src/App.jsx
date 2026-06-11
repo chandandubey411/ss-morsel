@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
-import ScrollToTop from './components/layout/ScrollToTop'
 import Loader from './components/common/Loader'
 import AIChatbot from './components/common/AIChatbot'
 import WhatsAppChat from './components/common/WhatsAppChat'
@@ -72,9 +71,6 @@ function App() {
 
           {/* Global Footer */}
           <Footer />
-
-          {/* Float Action Button */}
-          <ScrollToTop />
 
           {/* AI Chatbot */}
           <AIChatbot activeChat={activeChat} setActiveChat={setActiveChat} />

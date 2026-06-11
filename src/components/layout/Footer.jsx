@@ -27,7 +27,7 @@ const Footer = () => {
               <img
                 src="/logo.jpg"
                 alt="SS Morsel India Logo"
-                className="w-12 h-12 rounded-xl object-cover flex-shrink-0 border border-white/10"
+                className="w-12 h-12 rounded-2xl object-cover flex-shrink-0 border border-white/10"
               />
               <div>
                 <div className="text-white font-bold text-lg font-poppins leading-tight">SS Morsel India</div>

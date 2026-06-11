@@ -46,7 +46,7 @@ const Navbar = () => {
                 whileHover={{ rotate: 5, scale: 1.05 }}
                 src="/logo.jpg"
                 alt="SS Morsel India Logo"
-                className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border border-gray-200"
+                className="w-10 h-10 rounded-2xl object-cover flex-shrink-0 border border-gray-200"
               />
               <div className="hidden sm:block">
                 <div className="text-navy font-bold text-[15px] font-poppins leading-tight group-hover:text-primary transition-colors duration-300">
@@ -139,7 +139,7 @@ const Navbar = () => {
                   <img
                     src="/logo.jpg"
                     alt="SS Morsel India Logo"
-                    className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border border-gray-200"
+                    className="w-10 h-10 rounded-2xl object-cover flex-shrink-0 border border-gray-200"
                   />
                   <div>
                     <div className="text-navy font-bold text-sm font-poppins">SS Morsel India</div>

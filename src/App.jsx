@@ -5,6 +5,8 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import ScrollToTop from './components/layout/ScrollToTop'
 import Loader from './components/common/Loader'
+import AIChatbot from './components/common/AIChatbot'
+import WhatsAppChat from './components/common/WhatsAppChat'
 
 // Pages
 import Home from './pages/Home'
@@ -30,6 +32,7 @@ const ScrollToTopOnRouteChange = () => {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
+  const [activeChat, setActiveChat] = useState(null) // 'ai', 'whatsapp', or null
 
   useEffect(() => {
     // Show premium loader for 1.5 seconds
@@ -72,6 +75,12 @@ function App() {
 
           {/* Float Action Button */}
           <ScrollToTop />
+
+          {/* AI Chatbot */}
+          <AIChatbot activeChat={activeChat} setActiveChat={setActiveChat} />
+
+          {/* WhatsApp Chat */}
+          <WhatsAppChat activeChat={activeChat} setActiveChat={setActiveChat} />
         </div>
       </Router>
     </HelmetProvider>

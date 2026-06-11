@@ -20,7 +20,28 @@ const ClientLogos = () => {
         </div>
       </div>
 
-      {/* Infinite Slider */}
+      {/* Infinite Slider — Row 1 (Left to Right) */}
+      <div className="relative overflow-hidden mb-4">
+        {/* Gradient masks */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 z-10"
+          style={{ background: 'linear-gradient(90deg, #F8FAFC, transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-32 z-10"
+          style={{ background: 'linear-gradient(-90deg, #F8FAFC, transparent)' }} />
+
+        <div className="flex">
+          <motion.div
+            className="flex gap-5 items-center flex-shrink-0"
+            animate={{ x: [0, '-50%'] }}
+            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+          >
+            {logos.map((logo, i) => (
+              <LogoCard key={i} logo={logo} />
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Infinite Slider — Row 2 (Right to Left) */}
       <div className="relative overflow-hidden">
         {/* Gradient masks */}
         <div className="absolute left-0 top-0 bottom-0 w-32 z-10"
@@ -30,9 +51,9 @@ const ClientLogos = () => {
 
         <div className="flex">
           <motion.div
-            className="flex gap-6 items-center flex-shrink-0"
-            animate={{ x: [0, '-50%'] }}
-            transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
+            className="flex gap-5 items-center flex-shrink-0"
+            animate={{ x: ['-50%', 0] }}
+            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
           >
             {logos.map((logo, i) => (
               <LogoCard key={i} logo={logo} />
@@ -54,22 +75,24 @@ const LogoCard = ({ logo }) => {
 
   return (
     <div
-      className="flex-shrink-0 px-6 py-4 bg-white rounded-2xl border border-gray-100 shadow-card hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group cursor-default flex flex-col items-center gap-2"
-      style={{ minWidth: '150px' }}
+      className="flex-shrink-0 px-5 py-3 bg-white rounded-2xl border border-gray-100 shadow-card hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group cursor-default flex flex-col items-center gap-2"
+      style={{ minWidth: '140px' }}
     >
-      {/* Logo image */}
-      <div className="w-16 h-10 flex items-center justify-center">
+      {/* Logo image — mix-blend-mode: multiply removes white backgrounds */}
+      <div className="w-20 h-10 flex items-center justify-center">
         <img
           src={logo.logo}
           alt={`${logo.name} logo`}
-          className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+          className="max-w-full max-h-full object-contain transition-all duration-300 group-hover:scale-110"
+          style={{
+            mixBlendMode: 'multiply',
+            filter: 'grayscale(100%)',
+          }}
+          onMouseEnter={e => { e.target.style.filter = 'grayscale(0%)' }}
+          onMouseLeave={e => { e.target.style.filter = 'grayscale(100%)' }}
           onError={e => {
-            if (logo.fallbackLogo && e.target.src !== logo.fallbackLogo) {
-              e.target.src = logo.fallbackLogo
-            } else {
-              e.target.style.display = 'none'
-              e.target.nextSibling.style.display = 'flex'
-            }
+            e.target.style.display = 'none'
+            e.target.nextSibling.style.display = 'flex'
           }}
         />
         {/* Initials fallback */}
@@ -79,7 +102,7 @@ const LogoCard = ({ logo }) => {
       </div>
 
       {/* Name */}
-      <div className="text-navy font-semibold text-xs font-poppins group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
+      <div className="text-navy font-semibold text-xs font-poppins group-hover:text-primary transition-colors duration-300 whitespace-nowrap text-center">
         {logo.name}
       </div>
 

@@ -127,7 +127,7 @@ const Loader = ({ isLoading }) => {
                 <img
                   src="/logo.jpg"
                   alt="SS Morsel India Logo"
-                  className="w-16 h-16 rounded-xl object-cover"
+                  className="w-16 h-16 rounded-2xl object-cover"
                 />
               </motion.div>
             </div>

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaWhatsapp, FaPaperPlane } from 'react-icons/fa';
 import { BRAND } from '../../utils/constants';
 
-const PHONE = '919650628955'; // WhatsApp number (with country code, no +)
+const PHONE = '919650097704'; // WhatsApp number (with country code, no +)
 
 const quickMessages = [
   '🏢 I need office furniture dismantling services',

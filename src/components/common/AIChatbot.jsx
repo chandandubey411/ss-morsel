@@ -224,6 +224,260 @@ Trusted across all major commercial sectors in India! 🤝`,
   },
 ];
 
+// ── SS MORSEL LOCAL RESPONDER ──
+const getLocalResponse = (userMessage) => {
+  const lowerMsg = userMessage.toLowerCase().trim();
+
+  // 1. GREETINGS
+  if (
+    lowerMsg === 'hi' ||
+    lowerMsg === 'hello' ||
+    lowerMsg === 'hey' ||
+    lowerMsg === 'help' ||
+    lowerMsg === 'greetings'
+  ) {
+    return `Hello! 👋 Welcome to **SS Morsel India Pvt. Ltd.**
+    
+I am your AI Assistant. How can I help you today? You can ask me about:
+* 👤 Our Director (Mr. Sonu Kumar)
+* 🛠️ Our Work & Services
+* 🏢 Our Head Office Location
+* 📞 How to Contact Us
+* 💰 Getting a Free Quote`;
+  }
+
+  // 2. DIRECTOR / FOUNDER
+  if (
+    lowerMsg.includes('director') || 
+    lowerMsg.includes('founder') || 
+    lowerMsg.includes('ceo') || 
+    lowerMsg.includes('sonu') || 
+    lowerMsg.includes('owner') || 
+    lowerMsg.includes('boss') ||
+    lowerMsg.includes('who runs') ||
+    lowerMsg.includes('who is in charge')
+  ) {
+    return `👤 **Mr. Sonu Kumar** is the Director & Founder of SS Morsel India Pvt. Ltd.
+
+With over **18 years of hands-on experience** in the office dismantling and bare-shelling industry, he has established the company as one of India's most trusted names in commercial space transformation. Under his leadership, the company has completed **500+ projects** for MNCs and Fortune 500 companies. Mr. Sonu Kumar is committed to high safety standards, quality, and eco-friendly practices. 🏆`;
+  }
+
+  // 3. OFFICE / LOCATION / ADDRESS
+  if (
+    lowerMsg.includes('office') || 
+    lowerMsg.includes('address') || 
+    lowerMsg.includes('location') || 
+    lowerMsg.includes('headquarters') || 
+    lowerMsg.includes('where is') ||
+    lowerMsg.includes('where are you') ||
+    lowerMsg.includes('situated') ||
+    lowerMsg.includes('located')
+  ) {
+    return `🏢 **SS Morsel India Head Office Address:**
+
+H.No. 667, 1st Floor, 
+Behind Euro School, Sector-10, 
+Gurugram, Haryana - 122001, India.
+
+📍 Feel free to visit us or contact us at **+91 96506 28955** to schedule a meeting or a free site inspection!`;
+  }
+
+  // 4. CONTACT / PHONE / WHATSAPP / EMAIL
+  if (
+    lowerMsg.includes('contact') || 
+    lowerMsg.includes('phone') || 
+    lowerMsg.includes('mobile') || 
+    lowerMsg.includes('number') || 
+    lowerMsg.includes('email') || 
+    lowerMsg.includes('mail') || 
+    lowerMsg.includes('whatsapp') ||
+    lowerMsg.includes('call you') ||
+    lowerMsg.includes('reach you')
+  ) {
+    return `📞 **Contact SS Morsel India:**
+
+* **Phone/WhatsApp:** +91 96506 28955
+* **Email:** info@ssmorsel.com
+* **Head Office:** H.No. 667, 1st Floor, Behind Euro School, Sector-10, Gurugram - 122001
+* **Working Hours:** Mon - Sat: 9:00 AM - 7:00 PM
+
+💬 You can also click the **WhatsApp** icon on the bottom-right of this page to chat directly with our team!`;
+  }
+
+  // 5. WORK / SERVICES
+  if (
+    lowerMsg.includes('work') || 
+    lowerMsg.includes('service') || 
+    lowerMsg.includes('what do you do') || 
+    lowerMsg.includes('what you do') || 
+    lowerMsg.includes('offer') || 
+    lowerMsg.includes('provide') || 
+    lowerMsg.includes('business') ||
+    lowerMsg.includes('job') ||
+    lowerMsg.includes('tasks')
+  ) {
+    return `🛠️ **SS Morsel India Pvt. Ltd.** specializes in commercial space transition and asset management. Our core services are:
+
+1. **Office Furniture Dismantling** — Dismantling workstations, partitions, conference tables, and executive desks.
+2. **Office Reinstatement** — Restoring leased office spaces to their original condition for landlord handover.
+3. **Bare Shelling** — Stripping commercial fit-outs down to the raw concrete shell.
+4. **IT Asset Disposal (ITAD)** — Certified data destruction and compliant IT asset decommissioning.
+5. **Scrap Purchasing** — Offering competitive rates for office metal, electrical, and furniture scrap.
+6. **E-Waste Management** — MSTC government licensed, environment-compliant e-waste disposal.
+
+Let us know if you want details or a quote for any of these services!`;
+  }
+
+  // 6. SPECIFIC SERVICES DETAILED INFO
+  if (lowerMsg.includes('dismantle') || lowerMsg.includes('dismantling') || lowerMsg.includes('furniture')) {
+    return `🪑 **Office Furniture Dismantling Services:**
+
+Our expert team handles complete office furniture dismantling with care and precision:
+* Modular Workstation & Partition Dismantling
+* Conference Table & Executive Furniture Removal
+* Filing Cabinet & Storage Unit Clearance
+* Full Office Set-Up Removal
+
+We ensure no damage to property and smooth handing over of premises. A majority of our business comes through corporate references!`;
+  }
+
+  if (lowerMsg.includes('reinstatement') || lowerMsg.includes('restore') || lowerMsg.includes('original condition')) {
+    return `🔧 **Office Reinstatement Services:**
+
+We restore leased office spaces to their original condition as required by landlords:
+* Full Fit-Out & False Ceiling Removal
+* Raised Floor Dismantling
+* Wall Patching & Painting
+* MEP (Mechanical, Electrical, Plumbing) Restoration
+* Final Deep Cleaning & Debris Removal
+
+Ensuring a seamless, hassle-free transition and landlord compliance.`;
+  }
+
+  if (lowerMsg.includes('bare shell') || lowerMsg.includes('bare shelling') || lowerMsg.includes('shelling')) {
+    return `🏗️ **Bare Shelling Services:**
+
+We strip commercial spaces down to the raw concrete structure:
+* Demolition of false ceilings & raised flooring
+* Removal of all internal partitions & fit-outs
+* Safe dismantling of electrical, HVAC, and plumbing fixtures
+* Returning the space to its original shell condition systematically.`;
+  }
+
+  if (
+    lowerMsg.includes('it asset') || 
+    lowerMsg.includes('itad') || 
+    lowerMsg.includes('computer') || 
+    lowerMsg.includes('laptop') || 
+    lowerMsg.includes('server') || 
+    lowerMsg.includes('data destruction')
+  ) {
+    return `💻 **IT Asset Disposal (ITAD) Services:**
+
+We offer secure, certified IT asset disposal:
+* **Certified Data Destruction** — Military-grade wiping or physical destruction of drives with a Certificate of Destruction.
+* **Network & Server Decommissioning** — Safe removal of racks, cables, and servers.
+* **Laptop & Desktop Disposal** — Compliant disposal of old computer assets.
+* Full chain-of-custody tracking.`;
+  }
+
+  if (lowerMsg.includes('scrap') || lowerMsg.includes('metal') || lowerMsg.includes('buy scrap') || lowerMsg.includes('sell scrap')) {
+    return `♻️ **Scrap Purchasing Services:**
+
+We buy all types of commercial and office scrap at top market rates:
+* **Metal Scrap:** Copper, iron, aluminum, brass, stainless steel.
+* **Electrical Scrap:** Old wiring, switchboards, UPS systems, batteries.
+* **Furniture Scrap:** Metal structures, frames, partitions, storage lockers.
+* Same-day valuation and instant payment with proper documentation.`;
+  }
+
+  if (lowerMsg.includes('e-waste') || lowerMsg.includes('electronic waste') || lowerMsg.includes('ewaste') || lowerMsg.includes('mstc')) {
+    return `🌱 **E-Waste Management Services:**
+
+We are a **MSTC licensed** e-waste handler:
+* Government-compliant, safe electronic disposal.
+* Collection and recycling of bulk office electronics.
+* E-waste disposal certificates issued for compliance and ESG reporting.`;
+  }
+
+  // 7. CERTIFICATIONS / ISO / MSTC
+  if (
+    lowerMsg.includes('certificat') || 
+    lowerMsg.includes('iso') || 
+    lowerMsg.includes('mstc') || 
+    lowerMsg.includes('license') || 
+    lowerMsg.includes('licensed')
+  ) {
+    return `🏅 **SS Morsel India Certifications & Compliance:**
+
+* **ISO 9001:2015 Quality Management System Certified** (since 2022) — guaranteeing high-quality standards in project execution.
+* **MSTC Government Licensed** — authorized for government and corporate e-waste and scrap management.
+* Fully compliant with safety (HSE) protocols and environmental norms.`;
+  }
+
+  // 8. QUOTE / PRICING
+  if (
+    lowerMsg.includes('quote') || 
+    lowerMsg.includes('price') || 
+    lowerMsg.includes('cost') || 
+    lowerMsg.includes('rate') || 
+    lowerMsg.includes('charge') || 
+    lowerMsg.includes('estimate') || 
+    lowerMsg.includes('how much')
+  ) {
+    return `💰 **Pricing & Quotation:**
+
+We offer highly competitive and transparent rates tailored to your project:
+1. **Free Site Inspection** — We visit your space to assess the scope.
+2. **Transparent Quotation** — A detailed cost breakdown within 2 hours of inspection.
+3. **No Hidden Costs** — What we quote is what you pay.
+
+Contact us at **+91 96506 28955** or send a mail to **info@ssmorsel.com** to book a free site visit!`;
+  }
+
+  // 9. PROJECTS / PORTFOLIO
+  if (
+    lowerMsg.includes('project') || 
+    lowerMsg.includes('client') || 
+    lowerMsg.includes('portfolio') || 
+    lowerMsg.includes('experience') || 
+    lowerMsg.includes('track record') || 
+    lowerMsg.includes('dlf')
+  ) {
+    return `🏆 **Our Portfolio & Experience:**
+
+* **500+ Projects Completed** across India since 2015.
+* **200+ Corporate Clients** including leading multinational brands.
+* Major project executions in **DLF Cyber City, DLF Cyber Hub, and DLF SEZ** in Gurugram.
+* Led by Sonu Kumar with **18+ years of industry experience**.`;
+  }
+
+  // 10. SCORING BACKUP
+  let bestMatch = null;
+  let highestScore = 0;
+
+  for (const item of localKB) {
+    let score = 0;
+    for (const key of item.keys) {
+      if (lowerMsg.includes(key)) {
+        score += key.split(' ').length;
+      }
+    }
+    if (score > highestScore) {
+      highestScore = score;
+      bestMatch = item;
+    }
+  }
+
+  if (bestMatch && highestScore > 0) {
+    return bestMatch.answer;
+  }
+
+  return `I'm not completely sure about that. 🏢 However, I can help you with our **Services**, **Office Location**, **Contact Details**, or about our **Director Mr. Sonu Kumar**.
+
+Please ask me a related question, or reach out to us directly on WhatsApp at **+91 96506 28955** for immediate assistance! 😊`;
+};
+
 const AIChatbot = ({ activeChat, setActiveChat }) => {
   const isOpen = activeChat === 'ai';
   const setIsOpen = (open) => setActiveChat(open ? 'ai' : null);
@@ -265,49 +519,10 @@ const AIChatbot = ({ activeChat, setActiveChat }) => {
     setIsTyping(true);
 
     try {
-      if (API_KEY === 'YOUR_API_KEY_HERE') {
+      if (API_KEY === 'YOUR_API_KEY_HERE' || !API_KEY || API_KEY.startsWith('YOUR_')) {
         // Local fallback knowledge base
         setTimeout(() => {
-          const lowerMsg = userMessage.toLowerCase().trim();
-
-          if (
-            lowerMsg === 'hi' ||
-            lowerMsg === 'hello' ||
-            lowerMsg === 'hey' ||
-            lowerMsg === 'help'
-          ) {
-            const reply =
-              "Hello! 👋 Welcome to **SS Morsel India Pvt. Ltd.**\n\nI'm your AI Assistant. I can help you with:\n* 🪑 Office Furniture Dismantling\n* 🔧 Office Reinstatement\n* 🏗️ Bare Shelling\n* 💻 IT Asset Disposal\n* ♻️ Scrap Purchasing\n* 🌱 E-Waste Management\n* 👤 About our Director Sonu Kumar\n\nWhat can I help you with today?";
-            setMessages((prev) => [...prev, { role: 'ai', text: reply }]);
-            setIsTyping(false);
-            return;
-          }
-
-          // Ranking match
-          let bestMatch = null;
-          let highestScore = 0;
-
-          for (const item of localKB) {
-            let score = 0;
-            for (const key of item.keys) {
-              if (lowerMsg.includes(key)) {
-                score += key.split(' ').length;
-              }
-            }
-            if (score > highestScore) {
-              highestScore = score;
-              bestMatch = item;
-            }
-          }
-
-          let responseText = '';
-          if (bestMatch && highestScore > 0) {
-            responseText = bestMatch.answer;
-          } else {
-            responseText =
-              "I'm not completely sure about that. 🏢 However, I can help you with our **Services**, **Pricing**, **Process**, **Certifications**, or about our **Director Sonu Kumar**!\n\nPlease choose a topic or ask me a related question. For urgent queries, you can also reach us on WhatsApp at **+91 96506 28955**. 😊";
-          }
-
+          const responseText = getLocalResponse(userMessage);
           setMessages((prev) => [...prev, { role: 'ai', text: responseText }]);
           setIsTyping(false);
         }, 800);
@@ -351,13 +566,9 @@ const AIChatbot = ({ activeChat, setActiveChat }) => {
       setMessages((prev) => [...prev, { role: 'ai', text }]);
     } catch (error) {
       console.error('Chat error:', error);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'ai',
-          text: "I'm sorry, I'm having trouble connecting right now. Please try again or contact us at **+91 96506 28955**.",
-        },
-      ]);
+      // Fallback to local KB instead of showing error message
+      const responseText = getLocalResponse(userMessage);
+      setMessages((prev) => [...prev, { role: 'ai', text: responseText }]);
     } finally {
       setIsTyping(false);
     }

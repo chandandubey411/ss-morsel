@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FiArrowRight, FiAward, FiUsers, FiTarget } from 'react-icons/fi'
 import SectionHeading from '../common/SectionHeading'
+import officeWorkImg from '../../assets/office_Image/Office Reinstamenet.png'
 
 const AboutPreview = () => {
   const highlights = [
@@ -86,8 +87,8 @@ const AboutPreview = () => {
               className="relative rounded-3xl overflow-hidden h-96 lg:h-[500px]"
             >
               <img
-                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80"
-                alt="Office Dismantling Work"
+                src={officeWorkImg}
+                alt="SS Morsel Office Dismantling Work in Progress"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />

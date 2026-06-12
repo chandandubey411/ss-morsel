@@ -1,3 +1,10 @@
+import furnitureDismantlingImg from '../assets/images/WhatsApp Image 2026-05-17 at 15.52.11.jpeg'
+import reinstatementImg       from '../assets/office_Image/Mercer office.jpg'
+import bareShellingImg        from '../assets/images/WhatsApp Image 2026-05-17 at 15.52.06.jpeg'
+import itAssetImg             from '../assets/images/WhatsApp Image 2026-05-17 at 15.52.08.jpeg'
+import scrapImg               from '../assets/images/WhatsApp Image 2026-05-17 at 15.52.12.jpeg'
+import eWasteImg              from '../assets/images/WhatsApp Image 2026-05-17 at 15.52.02.jpeg'
+
 export const services = [
   {
     id: 1,
@@ -14,7 +21,7 @@ export const services = [
       'Partition Wall Dismantling',
       'Storage Unit Removal',
     ],
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+    image: furnitureDismantlingImg,
     bgColor: '#0B3D91',
   },
   {
@@ -32,7 +39,7 @@ export const services = [
       'MEP Restoration',
       'Final Deep Clean',
     ],
-    image: 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&q=80',
+    image: reinstatementImg,
     bgColor: '#00C389',
   },
   {
@@ -50,7 +57,7 @@ export const services = [
       'HVAC Dismantling',
       'Plumbing Disconnection',
     ],
-    image: 'https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&q=80',
+    image: bareShellingImg,
     bgColor: '#FF8A00',
   },
   {
@@ -68,7 +75,7 @@ export const services = [
       'Certificate of Destruction',
       'R2/RIOS Compliant Process',
     ],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
+    image: itAssetImg,
     bgColor: '#0B3D91',
   },
   {
@@ -86,7 +93,7 @@ export const services = [
       'Market Rate Valuation',
       'Same Day Payment',
     ],
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    image: scrapImg,
     bgColor: '#00C389',
   },
   {
@@ -104,7 +111,7 @@ export const services = [
       'Data-Safe Destruction',
       'Environmental Compliance',
     ],
-    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&q=80',
+    image: eWasteImg,
     bgColor: '#FF8A00',
   },
 ]

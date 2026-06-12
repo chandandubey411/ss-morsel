@@ -1,451 +1,523 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
-import {
-  FiAward, FiShield, FiFileText, FiCpu, FiX, FiCheckCircle,
-  FiCalendar, FiUser, FiHash, FiExternalLink
-} from 'react-icons/fi'
+import { FiX, FiZoomIn, FiShield, FiAward, FiCheckCircle, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import PageTransition from '../components/layout/PageTransition'
-import SectionHeading from '../components/common/SectionHeading'
-import CertificatesSection from '../components/home/Certificates'
 import CTA from '../components/home/CTA'
-import businessLicenseImg from '../assets/images/business_license_slide.png'
 
-/* ─── Incorporation Documents (from the business license slide) ─── */
-const incorporationDocs = [
+/* ─── Certificate Data ─── */
+const certificates = [
   {
     id: 'coi',
-    icon: '🇮🇳',
-    color: '#0B3D91',
-    colorLight: 'rgba(11,61,145,0.07)',
+    tag: 'Ministry of Corporate Affairs',
+    tagColor: '#0B3D91',
     title: 'Certificate of Incorporation',
-    subtitle: 'Pursuant to Companies Act, 2013',
-    issuer: 'Registrar of Companies, Delhi',
-    cinNo: 'U37100HR2015PTC054431',
-    date: '29th January, 2015',
-    status: 'Perpetual / Active',
-    authority: 'Ministry of Corporate Affairs, GoI',
-    desc: 'Officially incorporated under the Companies Act, 2013 (sub-section 2 of section 7 & rule 8 of Companies Rules, 2014). Registered as a Private Limited Company.',
+    number: 'CIN: U37100HR2015PTC054431',
+    issuedBy: 'Registrar of Companies, Delhi',
+    issuedOn: '29 January 2015',
+    validity: 'Perpetual',
+    status: 'Active',
+    statusColor: '#1E824C',
+    icon: '🏛️',
+    gradient: 'linear-gradient(135deg, #0B3D91 0%, #1a56c4 100%)',
+    glowColor: 'rgba(11,61,145,0.3)',
+    image: '/coi_cert.png',
+    hasImage: true,
+    description: 'Officially incorporated under the Companies Act, 2013. Registered as a Private Limited Company under Ministry of Corporate Affairs, Government of India.',
   },
   {
-    id: 'moa',
+    id: 'gst',
+    tag: 'Government of India',
+    tagColor: '#1E824C',
+    title: 'GST Registration Certificate',
+    number: 'GSTIN: 06AAVCS4273P1ZD',
+    issuedBy: 'Central Board of Indirect Taxes',
+    issuedOn: '24 September 2017',
+    validity: 'Ongoing',
+    status: 'Registered',
+    statusColor: '#1E824C',
     icon: '📋',
-    color: '#1E824C',
-    colorLight: 'rgba(30,130,76,0.07)',
-    title: 'Memorandum of Association',
-    subtitle: 'Company Limited by Shares',
-    issuer: 'Registrar of Companies, Delhi',
-    cinNo: 'U37100HR2015PTC054431',
-    date: '29th January, 2015',
-    status: 'Registered / Active',
-    authority: 'Ministry of Corporate Affairs, GoI',
-    desc: 'Defines the company\'s objects, scope, and authorized capital. Covers recycling, dismantling, scrap trading, IT hardware disposal, and all allied business activities.',
+    gradient: 'linear-gradient(135deg, #1E824C 0%, #27ae60 100%)',
+    glowColor: 'rgba(30,130,76,0.3)',
+    image: '/gst_cert.png',
+    hasImage: true,
+    description: 'Form GST REG-06 [See Rule 10(1)] — Registration Certificate issued by the Central Board of Indirect Taxes & Customs, Government of India.',
   },
   {
-    id: 'aoa',
-    icon: '📑',
-    color: '#8B2FC9',
-    colorLight: 'rgba(139,47,201,0.07)',
-    title: 'Articles of Association',
-    subtitle: 'Internal Governance Document',
-    issuer: 'Registrar of Companies, Delhi',
-    cinNo: 'U37100HR2015PTC054431',
-    date: '29th January, 2015',
-    status: 'Registered / Active',
-    authority: 'Ministry of Corporate Affairs, GoI',
-    desc: 'Governs the internal management rules, shareholder rights, director appointments, and corporate governance framework of S S Morsel India Private Limited.',
+    id: 'mstc',
+    tag: 'Govt. of India Enterprise',
+    tagColor: '#0077B6',
+    title: 'MSTC Buyer Card',
+    number: 'Buyer Ref. No: 98616',
+    issuedBy: 'MSTC Limited',
+    issuedOn: '17 September 2019',
+    validity: 'Valid upto 16 April 2028',
+    status: 'Valid',
+    statusColor: '#0077B6',
+    icon: '🪪',
+    gradient: 'linear-gradient(135deg, #0077B6 0%, #00B4D8 100%)',
+    glowColor: 'rgba(0,119,182,0.3)',
+    image: '/mstc_card.png',
+    hasImage: true,
+    description: 'Authorized buyer card issued by MSTC Limited (A Govt. of India Enterprise) for e-waste and scrap material procurement. Authorized representative: Sonu Kumar.',
+  },
+  {
+    id: 'iso',
+    tag: 'ICV Assessments Pvt. Ltd.',
+    tagColor: '#7B2FBE',
+    title: 'ISO 9001:2015 Certified',
+    number: 'Cert. No: IN/08525582/1415',
+    issuedBy: 'ICV Assessments Pvt. Ltd.',
+    issuedOn: '06 June 2026',
+    validity: 'Expires 05 June 2029',
+    status: 'Certified',
+    statusColor: '#7B2FBE',
+    icon: '🏆',
+    gradient: 'linear-gradient(135deg, #7B2FBE 0%, #a855f7 100%)',
+    glowColor: 'rgba(123,47,190,0.3)',
+    image: '/iso_cert.png',
+    hasImage: true,
+    description: 'Quality Management Systems — Provision Waste Collection, Treatment & Disposal Activities, Materials Recovery, Collection of Hazardous Waste, Remediation Activities & Other Waste Management Services, Pro & Recycling.',
+    comingSoon: false,
+  },
+  {
+    id: 'msme',
+    tag: 'Ministry of MSME, GoI',
+    tagColor: '#C0392B',
+    title: 'Udyam Registration Certificate',
+    number: 'UDYAM-HR-05-0011132',
+    issuedBy: 'Ministry of Micro, Small & Medium Enterprises',
+    issuedOn: '29 January 2015',
+    validity: 'Perpetual',
+    status: 'Registered',
+    statusColor: '#C0392B',
+    icon: '🏭',
+    gradient: 'linear-gradient(135deg, #C0392B 0%, #e74c3c 100%)',
+    glowColor: 'rgba(192,57,43,0.3)',
+    image: '/msme_cert.png',
+    hasImage: true,
+    description: 'Government of India — Ministry of Micro, Small and Medium Enterprises. Enterprise Type: Micro | Major Activity: Services | Social Category: General.',
+    comingSoon: false,
   },
 ]
 
-const complianceStandards = [
-  {
-    icon: FiShield,
-    title: 'Health & Safety (HSE) Protocol',
-    desc: 'Strict zero-accident policy with daily PPE audits, toolbox talks, and risk assessments for all dismantling sites.',
-  },
-  {
-    icon: FiCpu,
-    title: 'E-Waste & Green Recycling',
-    desc: 'Authorized handler of e-waste via MSTC. We provide green recycling certificates for all dismantled IT hardware.',
-  },
-  {
-    icon: FiFileText,
-    title: 'Full Compliance & Documentation',
-    desc: 'GST invoices, labor licenses, state compliance certificates, and scrap disposal receipts provided with audit trails.',
-  },
-  {
-    icon: FiAward,
-    title: 'ISO 9001 Quality Benchmarks',
-    desc: 'Internationally recognized quality standard for operations, scheduling, project management, and customer satisfaction.',
-  },
-]
-
-const galleryDocs = [
-  { id: 'coi', title: 'Certificate of Incorporation', src: '/coi_cert.png', desc: 'S S Morsel India Private Limited — Ministry of Corporate Affairs, GoI' },
-  { id: 'gst', title: 'GST Registration', src: '/gst_cert.png', desc: 'Form GST REG-06 | Registration No: 06AAVCS4273P1ZD' },
-  { id: 'mstc', title: 'MSTC Buyer Card', src: '/mstc_card.png', desc: 'MSTC Limited (A Govt. of India Enterprise) | Buyer Ref. No: 98616' },
-  { id: 'all', title: 'MOA & AOA Overview', src: businessLicenseImg, desc: 'S S Morsel India Private Limited Registration Slide' },
+/* ─── Stats ─── */
+const stats = [
+  { value: '5+', label: 'Government Certifications', icon: '🏅' },
+  { value: '2015', label: 'Established Since', icon: '📅' },
+  { value: '100%', label: 'Compliance Rate', icon: '✅' },
+  { value: 'ISO 9001', label: 'Quality Standard', icon: '🏆' },
 ]
 
 const CertificatesPage = () => {
-  const [zoomDocId, setZoomDocId] = useState(null)
-  const [selectedDoc, setSelectedDoc] = useState(null)
+  const [lightboxCert, setLightboxCert] = useState(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const openLightbox = (cert, idx) => {
+    setLightboxCert(cert)
+    setCurrentIndex(idx)
+  }
+
+  const navigate = (dir) => {
+    const imageCerts = certificates.filter(c => c.hasImage)
+    const newIdx = (currentIndex + dir + imageCerts.length) % imageCerts.length
+    setCurrentIndex(newIdx)
+    setLightboxCert(imageCerts[newIdx])
+  }
 
   return (
     <PageTransition>
       <Helmet>
         <title>Certifications & Compliance | SS Morsel India Pvt Ltd</title>
-        <meta name="description" content="ISO 9001:2015, MSTC E-Waste, GST, MSME, and Labour licenses of SS Morsel India Pvt. Ltd. Official government-approved industrial dismantling partner." />
+        <meta name="description" content="ISO 9001:2015, MSTC E-Waste, GST, MSME, and Incorporation certificates of SS Morsel India Pvt. Ltd." />
       </Helmet>
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-20" style={{ background: 'linear-gradient(135deg, #081C3A, #0B3D91)' }}>
-        <div className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }}
-        />
+      {/* ── Hero ── */}
+      <section className="relative pt-32 pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #060F2A 0%, #0B1E4A 50%, #081535 100%)' }}>
+        {/* Animated grid */}
+        <div className="absolute inset-0 opacity-[0.07]" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+        }} />
+
+        {/* Glow orbs */}
+        <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full opacity-20 blur-[100px]" style={{ background: 'radial-gradient(circle, #0B3D91, transparent)' }} />
+        <div className="absolute bottom-10 right-1/4 w-80 h-80 rounded-full opacity-15 blur-[80px]" style={{ background: 'radial-gradient(circle, #1E824C, transparent)' }} />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.span
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-secondary/40 bg-secondary/10 mb-6"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-8"
+            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(10px)' }}
           >
-            <div className="w-2 h-2 rounded-full bg-secondary" />
-            <span className="text-secondary text-xs font-semibold tracking-wider uppercase">Credentials</span>
-          </motion.span>
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-green-400 text-xs font-semibold tracking-[0.2em] uppercase font-inter">Government Verified Credentials</span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold text-white font-poppins leading-tight mb-6"
+            className="text-5xl md:text-7xl font-bold font-poppins leading-tight mb-6"
           >
-            Corporate{' '}
-            <span className="text-[#1E824C]">Certifications</span>
+            <span className="text-white">Corporate </span>
+            <span style={{
+              background: 'linear-gradient(90deg, #3B82F6, #10B981)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>Certifications</span>
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-300 text-lg font-inter max-w-2xl mx-auto"
+            className="text-gray-400 text-lg font-inter max-w-2xl mx-auto mb-16"
           >
-            Authorized and licensed by government bodies. Operating at the highest benchmarks of quality and safety.
+            Authorized and licensed by the Government of India. Operating at the highest benchmarks of quality, safety, and regulatory compliance.
           </motion.p>
+
+          {/* Stats Row */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+          >
+            {stats.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 + i * 0.08 }}
+                className="rounded-2xl p-5 text-center"
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  backdropFilter: 'blur(12px)',
+                }}
+              >
+                <div className="text-3xl mb-2">{s.icon}</div>
+                <div className="text-2xl font-bold text-white font-poppins">{s.value}</div>
+                <div className="text-gray-500 text-xs font-inter mt-1">{s.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* ── Incorporation Documents Section ── */}
-      <section className="py-20 bg-white border-b border-gray-100">
+      {/* ── Certificates Grid ── */}
+      <section className="py-24" style={{ background: 'linear-gradient(180deg, #F0F4FF 0%, #FFFFFF 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <SectionHeading
-              badge="Government Approved"
-              title="Official Business"
-              highlight="License & Incorporation"
-              subtitle="SS Morsel India Private Limited is fully registered under the Ministry of Corporate Affairs, Government of India. Click any document to view details."
-              align="center"
-            />
-          </div>
-
-          {/* Company Summary Card */}
+          {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-10 bg-[#F8FAFC] rounded-3xl border border-gray-100 p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm"
+            className="text-center mb-16"
           >
-            <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
-              style={{ background: 'linear-gradient(135deg, #0B3D91, #1E824C)' }}>
-              🏛️
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-5">
+              <FiShield size={14} className="text-blue-600" />
+              <span className="text-blue-600 text-xs font-semibold tracking-widest uppercase font-inter">All Registrations</span>
             </div>
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-navy font-bold font-poppins text-xl mb-1">S S MORSEL INDIA PVT. LTD.</h3>
-              <p className="text-gray-500 font-inter text-sm">CIN: <span className="font-mono font-semibold text-primary">U37100HR2015PTC054431</span> &nbsp;|&nbsp; Incorporated: 29 Jan 2015 &nbsp;|&nbsp; Haryana, India</p>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary/10 border border-secondary/20">
-              <FiCheckCircle className="text-secondary" size={16} />
-              <span className="text-secondary font-bold font-poppins text-sm">MCA Verified Active</span>
-            </div>
+            <h2 className="text-3xl md:text-5xl font-bold font-poppins text-[#060F2A] mb-4">
+              Our Official{' '}
+              <span style={{
+                background: 'linear-gradient(90deg, #0B3D91, #1E824C)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>Documents</span>
+            </h2>
+            <p className="text-gray-500 font-inter text-lg max-w-xl mx-auto">
+              Every certificate is issued by official government bodies and regulatory authorities of India.
+            </p>
           </motion.div>
 
-          {/* 3 Document Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {incorporationDocs.map((doc, i) => (
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {certificates.map((cert, i) => (
               <motion.div
-                key={doc.id}
-                initial={{ opacity: 0, y: 30 }}
+                key={cert.id}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, type: 'spring', stiffness: 110 }}
-                className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden cursor-pointer flex flex-col hover:-translate-y-1 transition-all duration-300"
-                style={{ boxShadow: '0 4px 20px rgba(11,61,145,0.07)' }}
-                onClick={() => setSelectedDoc(doc)}
+                transition={{ delay: i * 0.1, type: 'spring', stiffness: 90 }}
+                className="group relative rounded-3xl overflow-hidden cursor-pointer"
+                style={{
+                  background: '#FFFFFF',
+                  boxShadow: '0 4px 30px rgba(0,0,0,0.06)',
+                  border: '1px solid rgba(0,0,0,0.06)',
+                  transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+                }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.boxShadow = `0 20px 50px rgba(11,61,145,0.15)`
-                  e.currentTarget.style.borderColor = doc.color
+                  e.currentTarget.style.boxShadow = `0 30px 70px ${cert.glowColor}, 0 4px 20px rgba(0,0,0,0.08)`
+                  e.currentTarget.style.transform = 'translateY(-8px)'
+                  e.currentTarget.style.borderColor = cert.tagColor + '40'
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(11,61,145,0.07)'
-                  e.currentTarget.style.borderColor = 'rgba(243,244,246,1)'
+                  e.currentTarget.style.boxShadow = '0 4px 30px rgba(0,0,0,0.06)'
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'
                 }}
               >
-                {/* Top Color Bar */}
-                <div className="h-1.5 w-full" style={{ background: doc.color }} />
+                {/* Top gradient bar */}
+                <div className="h-1.5 w-full" style={{ background: cert.gradient }} />
 
-                {/* Header */}
-                <div className="p-6 flex items-start gap-4 border-b border-gray-50">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
-                    style={{ background: doc.colorLight }}>
-                    {doc.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-navy font-poppins text-base leading-snug mb-0.5">{doc.title}</h3>
-                    <p className="text-xs font-inter" style={{ color: doc.color }}>{doc.subtitle}</p>
-                  </div>
-                </div>
-
-                {/* Details */}
-                <div className="p-6 flex flex-col gap-3 flex-1">
-                  <p className="text-xs text-gray-500 font-inter leading-relaxed">{doc.desc}</p>
-
-                  <div className="mt-auto space-y-2 pt-3 border-t border-gray-50">
-                    <div className="flex items-center gap-2 text-xs font-inter text-gray-600">
-                      <FiHash size={11} style={{ color: doc.color }} />
-                      <span className="font-mono text-[11px]">{doc.cinNo}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-xs font-inter text-gray-600">
-                      <FiCalendar size={11} style={{ color: doc.color }} />
-                      <span>{doc.date}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-xs font-inter text-gray-600">
-                      <FiUser size={11} style={{ color: doc.color }} />
-                      <span>{doc.issuer}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer Status */}
-                <div className="px-6 pb-5 flex items-center justify-between">
-                  <span className="text-xs font-bold font-poppins px-3 py-1.5 rounded-lg"
-                    style={{ background: doc.colorLight, color: doc.color }}>
-                    {doc.status}
-                  </span>
-                  <span className="text-xs text-gray-400 font-inter flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <FiExternalLink size={11} /> View Details
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* View Original Documents button → zoom of composite */}
-          <div className="text-center">
-            <button
-              onClick={() => setZoomDocId('coi')}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-poppins font-semibold text-sm text-white transition-all duration-300 hover:scale-105"
-              style={{ background: 'linear-gradient(135deg, #0B3D91, #1E824C)' }}
-            >
-              📄 View Official Document Scans
-            </button>
-          </div>
-        </div>
-
-        {/* Lightbox for Original Slide */}
-        <AnimatePresence>
-          {zoomDocId && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-4 bg-navy/95 backdrop-blur-md"
-              onClick={() => setZoomDocId(null)}
-            >
-              <button
-                onClick={() => setZoomDocId(null)}
-                className="absolute top-6 right-6 w-10 h-10 bg-white/20 hover:bg-white/40 rounded-xl flex items-center justify-center text-white transition-colors z-[10000]"
-              >
-                <FiX size={18} />
-              </button>
-
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="max-w-4xl w-full flex flex-col gap-6"
-                onClick={e => e.stopPropagation()}
-              >
-                {/* Tabs / Selectors inside Lightbox */}
-                <div className="flex flex-wrap justify-center gap-2">
-                  {galleryDocs.map(doc => (
-                    <button
-                      key={doc.id}
-                      onClick={() => setZoomDocId(doc.id)}
-                      className={`px-4 py-2 rounded-xl text-xs md:text-sm font-poppins font-semibold transition-all duration-300 ${
-                        zoomDocId === doc.id
-                          ? 'bg-gradient-to-r from-primary to-green text-white shadow-lg'
-                          : 'bg-white/10 text-white hover:bg-white/20'
-                      }`}
-                    >
-                      {doc.title}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Scanned Image Container */}
-                <div className="relative bg-black/40 rounded-2xl p-2 border border-white/5 flex items-center justify-center min-h-[300px] md:min-h-[50vh] max-h-[70vh]">
-                  {galleryDocs.map(doc => {
-                    if (doc.id !== zoomDocId) return null
-                    return (
-                      <motion.img
-                        key={doc.id}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.2 }}
-                        src={doc.src}
-                        alt={doc.title}
-                        className="max-w-full max-h-[65vh] object-contain rounded-lg shadow-2xl mx-auto"
+                {/* Certificate Preview / Icon Area */}
+                <div
+                  className="relative w-full h-52 flex items-center justify-center overflow-hidden"
+                  style={{ background: `linear-gradient(145deg, ${cert.tagColor}08, ${cert.tagColor}18)` }}
+                >
+                  {cert.hasImage ? (
+                    <>
+                      <img
+                        src={cert.image}
+                        alt={cert.title}
+                        className="w-full h-full object-cover object-top opacity-85 group-hover:scale-105 transition-transform duration-700"
+                        style={{ filter: 'brightness(0.97)' }}
                       />
-                    )
-                  })}
-                </div>
-
-                {/* Info Text */}
-                {(() => {
-                  const currentDoc = galleryDocs.find(d => d.id === zoomDocId)
-                  return currentDoc ? (
-                    <div className="text-center text-white">
-                      <h4 className="font-bold font-poppins text-lg">{currentDoc.title}</h4>
-                      <p className="text-white/65 text-xs font-inter mt-1">{currentDoc.desc}</p>
-                    </div>
-                  ) : null
-                })()}
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Document Detail Modal */}
-        <AnimatePresence>
-          {selectedDoc && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-              style={{ background: 'rgba(8,28,58,0.95)', backdropFilter: 'blur(8px)' }}
-              onClick={() => setSelectedDoc(null)}
-            >
-              <motion.div
-                initial={{ scale: 0.85, opacity: 0, y: 20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.85, opacity: 0, y: 20 }}
-                className="bg-white rounded-3xl overflow-hidden max-w-md w-full"
-                onClick={e => e.stopPropagation()}
-              >
-                {/* Modal Header */}
-                <div className="h-2" style={{ background: selectedDoc.color }} />
-                <div className="p-6 border-b border-gray-100 flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl"
-                    style={{ background: selectedDoc.colorLight }}>
-                    {selectedDoc.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-navy font-bold font-poppins text-lg leading-tight">{selectedDoc.title}</h3>
-                    <p className="text-xs font-inter mt-0.5" style={{ color: selectedDoc.color }}>{selectedDoc.subtitle}</p>
-                  </div>
-                  <button
-                    onClick={() => setSelectedDoc(null)}
-                    className="w-9 h-9 rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                  >
-                    <FiX size={16} className="text-gray-600" />
-                  </button>
-                </div>
-
-                {/* Modal Body */}
-                <div className="p-6 space-y-4">
-                  <p className="text-gray-600 text-sm font-inter leading-relaxed">{selectedDoc.desc}</p>
-
-                  <div className="bg-gray-50 rounded-2xl p-4 space-y-3">
-                    {[
-                      { label: 'CIN', value: selectedDoc.cinNo, mono: true },
-                      { label: 'Incorporation Date', value: selectedDoc.date },
-                      { label: 'Issuing Authority', value: selectedDoc.issuer },
-                      { label: 'Governing Authority', value: selectedDoc.authority },
-                    ].map(row => (
-                      <div key={row.label} className="flex justify-between items-start gap-4 text-xs font-inter">
-                        <span className="text-gray-400 font-semibold whitespace-nowrap">{row.label}</span>
-                        <span className={`text-navy font-bold text-right ${row.mono ? 'font-mono' : ''}`}>{row.value}</span>
+                      {/* Overlay on hover */}
+                      <div
+                        className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                        style={{ background: `${cert.tagColor}CC`, backdropFilter: 'blur(2px)' }}
+                      >
+                        <button
+                          onClick={() => openLightbox(cert, certificates.filter(c => c.hasImage).indexOf(cert))}
+                          className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm font-poppins transition-all duration-200 hover:scale-105"
+                          style={{ background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.4)', backdropFilter: 'blur(10px)' }}
+                        >
+                          <FiZoomIn size={16} />
+                          View Certificate
+                        </button>
                       </div>
-                    ))}
+                    </>
+                  ) : (
+                    /* Stylized icon for certs without image */
+                    <div className="text-center">
+                      <div
+                        className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mx-auto mb-3 shadow-xl group-hover:scale-110 transition-transform duration-400"
+                        style={{ background: cert.gradient }}
+                      >
+                        {cert.icon}
+                      </div>
+                      <span
+                        className="text-xs font-semibold font-inter px-3 py-1 rounded-full"
+                        style={{ background: cert.tagColor + '15', color: cert.tagColor }}
+                      >
+                        {cert.tag}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Status badge */}
+                  <div
+                    className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold font-poppins backdrop-blur-sm"
+                    style={{ background: cert.statusColor + 'DD', color: '#fff' }}
+                  >
+                    <FiCheckCircle size={11} />
+                    {cert.status}
+                  </div>
+                </div>
+
+                {/* Card Body */}
+                <div className="p-7">
+                  {/* Tag */}
+                  <div
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold font-inter mb-3 px-3 py-1 rounded-full"
+                    style={{ background: cert.tagColor + '12', color: cert.tagColor }}
+                  >
+                    <FiAward size={11} />
+                    {cert.tag}
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold font-poppins px-3 py-2 rounded-xl flex items-center gap-1.5"
-                      style={{ background: selectedDoc.colorLight, color: selectedDoc.color }}>
-                      <FiCheckCircle size={12} />
-                      {selectedDoc.status}
-                    </span>
-                    <span className="text-xs text-gray-400 font-inter">Ministry of Corporate Affairs</span>
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-[#060F2A] font-poppins mb-1 leading-snug">
+                    {cert.title}
+                  </h3>
+
+                  {/* Number */}
+                  <p className="text-xs font-mono text-gray-500 mb-3 tracking-wide">{cert.number}</p>
+
+                  {/* Description */}
+                  <p className="text-gray-500 text-sm font-inter leading-relaxed mb-5 line-clamp-2">
+                    {cert.description}
+                  </p>
+
+                  {/* Divider */}
+                  <div className="border-t border-gray-100 pt-4 space-y-2">
+                    <div className="flex justify-between text-xs font-inter">
+                      <span className="text-gray-400">Issued by</span>
+                      <span className="text-gray-700 font-semibold text-right max-w-[55%]">{cert.issuedBy}</span>
+                    </div>
+                    <div className="flex justify-between text-xs font-inter">
+                      <span className="text-gray-400">Date</span>
+                      <span className="text-gray-700 font-semibold">{cert.issuedOn}</span>
+                    </div>
+                    <div className="flex justify-between text-xs font-inter">
+                      <span className="text-gray-400">Validity</span>
+                      <span className="font-semibold" style={{ color: cert.statusColor }}>{cert.validity}</span>
+                    </div>
                   </div>
 
-                  {selectedDoc.id === 'coi' && (
+                  {/* CTA button */}
+                  {cert.hasImage && (
                     <button
-                      onClick={() => {
-                        setZoomDocId('coi')
-                        setSelectedDoc(null)
+                      onClick={() => openLightbox(cert, certificates.filter(c => c.hasImage).indexOf(cert))}
+                      className="mt-5 w-full py-3 rounded-xl text-sm font-semibold font-poppins flex items-center justify-center gap-2 transition-all duration-300 hover:gap-3"
+                      style={{
+                        background: cert.gradient,
+                        color: '#fff',
+                        boxShadow: `0 8px 24px ${cert.glowColor}`,
                       }}
-                      className="w-full py-3 rounded-xl font-poppins font-semibold text-xs text-white transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
-                      style={{ background: `linear-gradient(135deg, ${selectedDoc.color}, #1E824C)` }}
                     >
-                      🔍 View Scanned Certificate
+                      <FiZoomIn size={15} />
+                      View Full Certificate
                     </button>
                   )}
                 </div>
               </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </section>
-
-      {/* Main Certificates Section (ISO, GST, MSME, etc.) */}
-      <CertificatesSection />
-
-      {/* Compliance Standards */}
-      <section className="section-padding bg-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <SectionHeading
-              badge="Regulatory Compliance"
-              title="Built On Strict"
-              highlight="Global Standards"
-              subtitle="We strictly comply with statutory norms to shield our clients from legal, environmental, and financial risks."
-              align="center"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {complianceStandards.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 border border-gray-100 flex gap-6 hover:shadow-card-hover transition-all duration-300 group"
-              >
-                <div className="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center bg-primary/10 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <item.icon className="text-primary group-hover:text-white transition-colors duration-300" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-navy font-bold font-poppins text-lg mb-2">{item.title}</h3>
-                  <p className="text-gray-500 font-inter text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* ── Trust Banner ── */}
+      <section className="py-20" style={{ background: 'linear-gradient(135deg, #060F2A 0%, #0B1E4A 100%)' }}>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl p-12 text-center relative overflow-hidden"
+            style={{
+              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              backdropFilter: 'blur(20px)',
+            }}
+          >
+            {/* decorative blobs */}
+            <div className="absolute -top-10 -left-10 w-64 h-64 rounded-full opacity-20 blur-[60px]" style={{ background: '#0B3D91' }} />
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 rounded-full opacity-20 blur-[60px]" style={{ background: '#1E824C' }} />
+
+            <div className="relative z-10">
+              <div className="text-4xl mb-4">🇮🇳</div>
+              <h3 className="text-3xl md:text-4xl font-bold font-poppins text-white mb-4">
+                Fully Compliant & <span style={{ background: 'linear-gradient(90deg, #3B82F6, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Government Approved</span>
+              </h3>
+              <p className="text-gray-400 font-inter text-lg max-w-2xl mx-auto">
+                SS Morsel India Pvt. Ltd. operates with full legal authorization under the Ministry of Corporate Affairs, MSME, GST, MSTC, and ISO quality frameworks.
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                {['MCA Registered', 'GST Compliant', 'MSME Certified', 'ISO 9001:2015', 'MSTC Authorized'].map((tag, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold font-inter"
+                    style={{ background: 'rgba(255,255,255,0.07)', color: '#fff', border: '1px solid rgba(255,255,255,0.12)' }}
+                  >
+                    <span className="text-green-400">✓</span> {tag}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Lightbox ── */}
+      <AnimatePresence>
+        {lightboxCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+            style={{ background: 'rgba(4,9,28,0.97)', backdropFilter: 'blur(16px)' }}
+            onClick={() => setLightboxCert(null)}
+          >
+            {/* Close */}
+            <button
+              onClick={() => setLightboxCert(null)}
+              className="absolute top-5 right-5 w-12 h-12 rounded-2xl flex items-center justify-center text-white transition-all hover:scale-110 hover:rotate-90 duration-300 z-[10001]"
+              style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}
+            >
+              <FiX size={20} />
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.88, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.88, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+              className="relative max-w-3xl w-full flex flex-col items-center gap-6"
+              onClick={e => e.stopPropagation()}
+            >
+              {/* Cert title pill */}
+              <div
+                className="flex items-center gap-3 px-5 py-2.5 rounded-full"
+                style={{ background: lightboxCert.tagColor + 'CC', backdropFilter: 'blur(10px)' }}
+              >
+                <span className="text-xl">{lightboxCert.icon}</span>
+                <span className="text-white font-semibold font-poppins text-sm">{lightboxCert.title}</span>
+              </div>
+
+              {/* Image */}
+              <div
+                className="w-full rounded-3xl overflow-hidden shadow-2xl"
+                style={{ border: `2px solid ${lightboxCert.tagColor}50` }}
+              >
+                <img
+                  src={lightboxCert.image}
+                  alt={lightboxCert.title}
+                  className="w-full object-contain max-h-[65vh] bg-white"
+                />
+              </div>
+
+              {/* Info row */}
+              <div
+                className="flex items-center gap-6 px-8 py-4 rounded-2xl text-sm font-inter text-gray-300"
+                style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+              >
+                <span><span className="text-gray-500 mr-2">Ref:</span>{lightboxCert.number}</span>
+                <span className="text-gray-700">|</span>
+                <span><span className="text-gray-500 mr-2">Issued:</span>{lightboxCert.issuedOn}</span>
+                <span className="text-gray-700">|</span>
+                <span
+                  className="flex items-center gap-1 font-semibold"
+                  style={{ color: lightboxCert.statusColor }}
+                >
+                  <FiCheckCircle size={13} /> {lightboxCert.status}
+                </span>
+              </div>
+
+              {/* Navigation arrows */}
+              {certificates.filter(c => c.hasImage).length > 1 && (
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => navigate(-1)}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white transition-all hover:scale-110 duration-200"
+                    style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}
+                  >
+                    <FiChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={() => navigate(1)}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white transition-all hover:scale-110 duration-200"
+                    style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}
+                  >
+                    <FiChevronRight size={20} />
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <CTA />
     </PageTransition>

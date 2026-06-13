@@ -6,7 +6,7 @@ import officeWorkImg from '../../assets/office_Image/Office Reinstamenet.png'
 
 const AboutPreview = () => {
   const highlights = [
-    { icon: FiAward, title: 'ISO 9001:2015', desc: 'Quality certified processes' },
+    { icon: FiAward, title: 'MSTC Licensed', desc: 'Authorized scrap handler' },
     { icon: FiUsers, title: '200+ Clients', desc: 'MNCs & Enterprise companies' },
     { icon: FiTarget, title: 'Pan India', desc: 'Operations across India' },
   ]

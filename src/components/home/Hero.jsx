@@ -8,7 +8,7 @@ const Hero = () => {
     { value: '500+', label: 'Projects Completed', icon: <FiTrendingUp size={20} />, accent: '#00C389' },
     { value: '200+', label: 'Satisfied Clients', icon: <FiUsers size={20} />, accent: '#FF8A00' },
     { value: '18+', label: 'Years Experience', icon: <FiAward size={20} />, accent: '#0B3D91' },
-    { value: 'ISO', label: '9001:2015 Certified', icon: <FiShield size={20} />, accent: '#00C389' },
+    { value: 'Pan India', label: 'Service Coverage', icon: <FiShield size={20} />, accent: '#00C389' },
   ]
 
   const clients = ['DLF', 'Google', 'Accenture', 'Deloitte', 'Infosys', 'TCS', 'KPMG', 'IBM']
@@ -93,7 +93,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-wrap gap-4 mb-10"
             >
-              {['ISO 9001:2015 Certified', 'MSTC Licensed', 'Pan India Service'].map((badge) => (
+              {['MCA Registered', 'MSTC Licensed', 'Pan India Service'].map((badge) => (
                 <div key={badge} className="flex items-center gap-2">
                   <FiCheckCircle className="text-secondary flex-shrink-0" size={16} />
                   <span className="text-gray-300 text-sm font-inter">{badge}</span>

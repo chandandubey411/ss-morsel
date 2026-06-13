@@ -9,7 +9,7 @@ const milestones = [
   { year: '2015', title: 'Company Founded', desc: 'SS Morsel India Pvt. Ltd. established in Gurugram by Director Sonu Kumar, specializing in office furniture dismantling.' },
   { year: '2018', title: 'MSTC License & Expansion', desc: 'Obtained MSTC government license for authorized e-waste and scrap management operations.' },
   { year: '2020', title: 'DLF Workspace Focus', desc: 'Successfully executed major projects in Gurgaon’s DLF infrastructure including DLF Cyber City, Cyber Hub, and DLF SEZ.' },
-  { year: '2022', title: 'ISO 9001 Quality Standards', desc: 'Achieved ISO 9001:2015 Quality Management System certification, setting new industry benchmarks.' },
+  { year: '2022', title: 'Pan-India Operations', desc: 'Expanded our operations beyond NCR, delivering corporate dismantling projects in major cities nationwide.' },
   { year: '2024', title: '500+ Projects Completed', desc: 'Successfully completed over 500 office dismantling, bare shelling, and scrap purchasing projects across India.' },
 ]
 
@@ -215,13 +215,13 @@ const About = () => {
               </p>
 
               <p className="text-gray-400 font-inter leading-relaxed text-sm">
-                Under his leadership, SS Morsel India has successfully completed 500+ projects for Fortune 500 companies, multinational corporations, and leading Indian enterprises. His commitment to safety, quality, and environmental responsibility has earned the company ISO 9001:2015 certification and MSTC government licensing.
+                Under his leadership, SS Morsel India has successfully completed 500+ projects for Fortune 500 companies, multinational corporations, and leading Indian enterprises. His commitment to safety, quality, and environmental responsibility has earned the company trusted government licenses including MSTC and MSME credentials.
               </p>
 
               {/* Key highlights */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {[
-                  { icon: FiAward, text: 'ISO 9001:2015 Certified' },
+                  { icon: FiAward, text: 'MCA Registered Company' },
                   { icon: FiUsers, text: '200+ Corporate Clients' },
                   { icon: FiTarget, text: 'MSTC Licensed Operations' },
                   { icon: FiTrendingUp, text: '500+ Projects Delivered' },

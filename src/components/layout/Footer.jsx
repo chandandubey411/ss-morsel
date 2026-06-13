@@ -40,7 +40,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-6">
               <span className="px-3 py-1.5 rounded-lg text-xs font-semibold text-white"
                 style={{ background: '#0B3D91' }}>
-                ISO 9001:2015
+                MCA Registered
               </span>
               <span className="px-3 py-1.5 rounded-lg text-xs font-semibold text-white border border-white/20">
                 MSTC Licensed

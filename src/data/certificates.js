@@ -12,17 +12,6 @@ export const certificates = [
   },
   {
     id: 1,
-    title: 'ISO 9001:2015',
-    subtitle: 'Quality Management Systems',
-    description: 'Certified by ICV Assessments Pvt. Ltd. (IAF & EGAC Accredited) for Waste Collection, Treatment & Disposal, Materials Recovery, Hazardous Waste handling, and Recycling. Cert No: IN/08525582/1415.',
-    issuer: 'ICV Assessments Pvt. Ltd.',
-    year: '2026',
-    validity: 'Valid Till 05/06/2029',
-    image: '/iso_cert.png',
-    badge: '🏆',
-  },
-  {
-    id: 2,
     title: 'GST Registration',
     subtitle: 'Goods & Services Tax Certificate',
     description: 'Officially registered under GST — Form GST REG-06 [See Rule 10(1)] with GSTIN: 06AAVCS4273P1ZD. Issued by Central Board of Indirect Taxes & Customs.',
@@ -33,7 +22,7 @@ export const certificates = [
     badge: '📋',
   },
   {
-    id: 3,
+    id: 2,
     title: 'MSME Udyam Certificate',
     subtitle: 'Udyam Registration Certificate',
     description: 'Registered under Ministry of Micro, Small & Medium Enterprises, Government of India. Udyam Number: UDYAM-HR-05-0011132. Enterprise Type: Micro | Activity: Services.',
@@ -44,7 +33,7 @@ export const certificates = [
     badge: '🏭',
   },
   {
-    id: 4,
+    id: 3,
     title: 'MSTC Buyer Card',
     subtitle: 'MSTC Buyer Identification Card',
     description: 'Authorized buyer card issued by MSTC Limited (A Govt. of India Enterprise) for e-waste and scrap material procurement. Buyer Ref. No: 98616. Authorized Rep: Sonu Kumar.',

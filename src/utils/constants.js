@@ -35,7 +35,7 @@ export const STATS = [
   { value: 500, suffix: '+', label: 'Projects Completed', icon: '🏢' },
   { value: 200, suffix: '+', label: 'Satisfied Clients', icon: '🤝' },
   { value: 18, suffix: '+', label: 'Years Experience', icon: '📅' },
-  { value: 100, suffix: '%', label: 'ISO Certified', icon: '🏆' },
+  { value: 100, suffix: '%', label: 'Compliance Rate', icon: '✅' },
 ]
 
 export const WHY_CHOOSE_US = [
@@ -48,7 +48,7 @@ export const WHY_CHOOSE_US = [
   {
     icon: 'FiShield',
     title: 'Quality Assurance',
-    description: 'ISO 9001:2015 certified processes ensuring the highest quality standards in every project.',
+    description: 'Standardized operational procedures ensuring the highest quality in every project.',
     color: '#00C389',
   },
   {

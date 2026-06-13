@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiX, FiZoomIn, FiShield, FiAward, FiCheckCircle, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { FiX, FiZoomIn, FiShield, FiAward, FiCheckCircle, FiChevronLeft, FiChevronRight, FiDownload } from 'react-icons/fi'
 import PageTransition from '../components/layout/PageTransition'
 import CTA from '../components/home/CTA'
 
@@ -62,25 +62,6 @@ const certificates = [
     description: 'Authorized buyer card issued by MSTC Limited (A Govt. of India Enterprise) for e-waste and scrap material procurement. Authorized representative: Sonu Kumar.',
   },
   {
-    id: 'iso',
-    tag: 'ICV Assessments Pvt. Ltd.',
-    tagColor: '#7B2FBE',
-    title: 'ISO 9001:2015 Certified',
-    number: 'Cert. No: IN/08525582/1415',
-    issuedBy: 'ICV Assessments Pvt. Ltd.',
-    issuedOn: '06 June 2026',
-    validity: 'Expires 05 June 2029',
-    status: 'Certified',
-    statusColor: '#7B2FBE',
-    icon: '🏆',
-    gradient: 'linear-gradient(135deg, #7B2FBE 0%, #a855f7 100%)',
-    glowColor: 'rgba(123,47,190,0.3)',
-    image: '/iso_cert.png',
-    hasImage: true,
-    description: 'Quality Management Systems — Provision Waste Collection, Treatment & Disposal Activities, Materials Recovery, Collection of Hazardous Waste, Remediation Activities & Other Waste Management Services, Pro & Recycling.',
-    comingSoon: false,
-  },
-  {
     id: 'msme',
     tag: 'Ministry of MSME, GoI',
     tagColor: '#C0392B',
@@ -99,14 +80,33 @@ const certificates = [
     description: 'Government of India — Ministry of Micro, Small and Medium Enterprises. Enterprise Type: Micro | Major Activity: Services | Social Category: General.',
     comingSoon: false,
   },
+  {
+    id: 'ppt',
+    tag: 'Corporate Presentation',
+    tagColor: '#1E824C',
+    title: 'Company Presentation (PPT)',
+    number: 'Document Ref: SS-MORSEL/PPT/2026',
+    issuedBy: 'SS Morsel India Pvt. Ltd.',
+    issuedOn: 'Updated Regularly',
+    validity: 'Ongoing',
+    status: 'Download',
+    statusColor: '#1E824C',
+    icon: '📊',
+    gradient: 'linear-gradient(135deg, #1E824C 0%, #27ae60 100%)',
+    glowColor: 'rgba(30,130,76,0.3)',
+    image: null,
+    hasImage: false,
+    downloadUrl: '/SS-MORSEL_PPT.pdf',
+    description: 'Official corporate presentation detailing SS Morsel India\'s operations, office dismantling services, clients, and execution methodologies.',
+  },
 ]
 
 /* ─── Stats ─── */
 const stats = [
-  { value: '5+', label: 'Government Certifications', icon: '🏅' },
+  { value: '5+', label: 'Corporate Credentials', icon: '🏅' },
   { value: '2015', label: 'Established Since', icon: '📅' },
   { value: '100%', label: 'Compliance Rate', icon: '✅' },
-  { value: 'ISO 9001', label: 'Quality Standard', icon: '🏆' },
+  { value: '200+', label: 'Corporate Clients', icon: '🏢' },
 ]
 
 const CertificatesPage = () => {
@@ -129,7 +129,7 @@ const CertificatesPage = () => {
     <PageTransition>
       <Helmet>
         <title>Certifications & Compliance | SS Morsel India Pvt Ltd</title>
-        <meta name="description" content="ISO 9001:2015, MSTC E-Waste, GST, MSME, and Incorporation certificates of SS Morsel India Pvt. Ltd." />
+        <meta name="description" content="MSTC E-Waste, GST, MSME, Incorporation certificates and Corporate Presentation of SS Morsel India Pvt. Ltd." />
       </Helmet>
 
       {/* ── Hero ── */}
@@ -260,6 +260,16 @@ const CertificatesPage = () => {
                   e.currentTarget.style.transform = 'translateY(0)'
                   e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'
                 }}
+                onClick={() => {
+                  if (cert.downloadUrl) {
+                    const link = document.createElement('a');
+                    link.href = cert.downloadUrl;
+                    link.download = cert.downloadUrl.split('/').pop();
+                    link.click();
+                  } else if (cert.hasImage) {
+                    openLightbox(cert, certificates.filter(c => c.hasImage).indexOf(cert));
+                  }
+                }}
               >
                 {/* Top gradient bar */}
                 <div className="h-1.5 w-full" style={{ background: cert.gradient }} />
@@ -283,7 +293,10 @@ const CertificatesPage = () => {
                         style={{ background: `${cert.tagColor}CC`, backdropFilter: 'blur(2px)' }}
                       >
                         <button
-                          onClick={() => openLightbox(cert, certificates.filter(c => c.hasImage).indexOf(cert))}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openLightbox(cert, certificates.filter(c => c.hasImage).indexOf(cert));
+                          }}
                           className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm font-poppins transition-all duration-200 hover:scale-105"
                           style={{ background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.4)', backdropFilter: 'blur(10px)' }}
                         >
@@ -294,19 +307,43 @@ const CertificatesPage = () => {
                     </>
                   ) : (
                     /* Stylized icon for certs without image */
-                    <div className="text-center">
-                      <div
-                        className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mx-auto mb-3 shadow-xl group-hover:scale-110 transition-transform duration-400"
-                        style={{ background: cert.gradient }}
-                      >
-                        {cert.icon}
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <div className="text-center">
+                        <div
+                          className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mx-auto mb-3 shadow-xl group-hover:scale-110 transition-transform duration-400"
+                          style={{ background: cert.gradient }}
+                        >
+                          {cert.icon}
+                        </div>
+                        <span
+                          className="text-xs font-semibold font-inter px-3 py-1 rounded-full"
+                          style={{ background: cert.tagColor + '15', color: cert.tagColor }}
+                        >
+                          {cert.tag}
+                        </span>
                       </div>
-                      <span
-                        className="text-xs font-semibold font-inter px-3 py-1 rounded-full"
-                        style={{ background: cert.tagColor + '15', color: cert.tagColor }}
-                      >
-                        {cert.tag}
-                      </span>
+                      {cert.downloadUrl && (
+                        /* Overlay on hover for download */
+                        <div
+                          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                          style={{ background: `${cert.tagColor}CC`, backdropFilter: 'blur(2px)' }}
+                        >
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              const link = document.createElement('a');
+                              link.href = cert.downloadUrl;
+                              link.download = cert.downloadUrl.split('/').pop();
+                              link.click();
+                            }}
+                            className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm font-poppins transition-all duration-200 hover:scale-105"
+                            style={{ background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.4)', backdropFilter: 'blur(10px)' }}
+                          >
+                            <FiDownload size={16} />
+                            Download PDF
+                          </button>
+                        </div>
+                      )}
                     </div>
                   )}
 
@@ -361,9 +398,12 @@ const CertificatesPage = () => {
                   </div>
 
                   {/* CTA button */}
-                  {cert.hasImage && (
+                  {cert.hasImage ? (
                     <button
-                      onClick={() => openLightbox(cert, certificates.filter(c => c.hasImage).indexOf(cert))}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openLightbox(cert, certificates.filter(c => c.hasImage).indexOf(cert));
+                      }}
                       className="mt-5 w-full py-3 rounded-xl text-sm font-semibold font-poppins flex items-center justify-center gap-2 transition-all duration-300 hover:gap-3"
                       style={{
                         background: cert.gradient,
@@ -374,7 +414,26 @@ const CertificatesPage = () => {
                       <FiZoomIn size={15} />
                       View Full Certificate
                     </button>
-                  )}
+                  ) : cert.downloadUrl ? (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const link = document.createElement('a');
+                        link.href = cert.downloadUrl;
+                        link.download = cert.downloadUrl.split('/').pop();
+                        link.click();
+                      }}
+                      className="mt-5 w-full py-3 rounded-xl text-sm font-semibold font-poppins flex items-center justify-center gap-2 transition-all duration-300 hover:gap-3"
+                      style={{
+                        background: cert.gradient,
+                        color: '#fff',
+                        boxShadow: `0 8px 24px ${cert.glowColor}`,
+                      }}
+                    >
+                      <FiDownload size={15} />
+                      Download PDF
+                    </button>
+                  ) : null}
                 </div>
               </motion.div>
             ))}
@@ -406,10 +465,10 @@ const CertificatesPage = () => {
                 Fully Compliant & <span style={{ background: 'linear-gradient(90deg, #3B82F6, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Government Approved</span>
               </h3>
               <p className="text-gray-400 font-inter text-lg max-w-2xl mx-auto">
-                SS Morsel India Pvt. Ltd. operates with full legal authorization under the Ministry of Corporate Affairs, MSME, GST, MSTC, and ISO quality frameworks.
+                SS Morsel India Pvt. Ltd. operates with full legal authorization under the Ministry of Corporate Affairs, MSME, GST, and MSTC.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                {['MCA Registered', 'GST Compliant', 'MSME Certified', 'ISO 9001:2015', 'MSTC Authorized'].map((tag, i) => (
+                {['MCA Registered', 'GST Compliant', 'MSME Certified', 'MSTC Authorized'].map((tag, i) => (
                   <motion.span
                     key={i}
                     initial={{ opacity: 0, scale: 0.8 }}

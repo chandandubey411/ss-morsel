@@ -25,7 +25,7 @@ const localKB = [
 * **Founded:** 2015
 * **Experience:** 18+ years of hands-on industry experience
 * **Director:** Mr. Sonu Kumar
-* **Head Office:** 1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002
+* **Head Office:** H.NO. 667, 1ST FLOOR, BEHIND EURO SCHOOL, SECTOR-10, Gurugram, Haryana 122001
 * **Certifications:** ISO 9001:2015 Quality Management Certified, MSTC Government Licensed for e-waste management
 
 We are trusted by 200+ multinational corporations for professional office set-up removal, reinstatement, IT asset disposal, and scrap management, ensuring smooth handing over of premises. 🤝`,
@@ -141,7 +141,7 @@ Eco-friendly disposal with full legal compliance. 📋`,
 We're here to help!
 * **Phone/WhatsApp:** +91 96500 97704
 * **Email:** info@ssmorsel.com
-* **Head Office:** 1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002
+* **Head Office:** H.NO. 667, 1ST FLOOR, BEHIND EURO SCHOOL, SECTOR-10, Gurugram, Haryana 122001
 * **Working Hours:** Mon - Sat: 9:00 AM - 7:00 PM
 
 For quick assistance, you can also click the **WhatsApp** button on the bottom-right of this page to chat directly with our team! 💬`,
@@ -275,10 +275,9 @@ With over **18 years of hands-on experience** in the office dismantling and bare
   ) {
     return `🏢 **SS Morsel India Head Office Address:**
 
-1st Floor, Old Bhagat Singh Complex, 
-near Furniture Market, DLF City, 
-Sikanderpur, DLF Phase 3, Sector 24, 
-Gurugram, Haryana - 122002, India.
+H.NO. 667, 1ST FLOOR, 
+BEHIND EURO SCHOOL, SECTOR-10, 
+Gurugram, Haryana - 122001, India.
 
 📍 Feel free to visit us or contact us at **+91 96500 97704** to schedule a meeting or a free site inspection!`;
   }
@@ -299,7 +298,7 @@ Gurugram, Haryana - 122002, India.
 
 * **Phone/WhatsApp:** +91 96500 97704
 * **Email:** info@ssmorsel.com
-* **Head Office:** 1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002
+* **Head Office:** H.NO. 667, 1ST FLOOR, BEHIND EURO SCHOOL, SECTOR-10, Gurugram, Haryana 122001
 * **Working Hours:** Mon - Sat: 9:00 AM - 7:00 PM
 
 💬 You can also click the **WhatsApp** icon on the bottom-right of this page to chat directly with our team!`;
@@ -540,7 +539,7 @@ const AIChatbot = ({ activeChat, setActiveChat }) => {
         - Company Name: SS Morsel India Pvt. Ltd. (Founded: 2015)
         - Director & Founder: Mr. Sonu Kumar — 18+ years of experience in office dismantling and bare-shelling
         - Contact: Phone/WhatsApp at +91 96500 97704, Email at info@ssmorsel.com
-        - Head Office: 1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002
+        - Head Office: H.NO. 667, 1ST FLOOR, BEHIND EURO SCHOOL, SECTOR-10, Gurugram, Haryana 122001
         - Working Hours: Mon - Sat: 9:00 AM - 7:00 PM
         - Core Services:
           1. Office Furniture Dismantling (workstations, cabinets, modular systems)

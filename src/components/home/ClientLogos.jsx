@@ -61,7 +61,15 @@ const ClientLogos = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Disclaimer note */}
+      <div className="max-w-4xl mx-auto px-4 text-center mt-12 relative z-10">
+        <p className="text-gray-400 text-[10px] md:text-xs font-inter leading-relaxed italic opacity-85">
+          Note: All client logos, trademarks, and brand names displayed on this website/document are the property of their respective owners. These logos are shown solely for the purpose of showcasing our previous work and professional associations. We have provided services to the respective clients where mentioned. The use of these logos does not imply any endorsement, partnership, or ownership unless explicitly stated.
+        </p>
+      </div>
     </section>
+
   )
 }
 

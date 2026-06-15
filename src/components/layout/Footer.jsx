@@ -158,14 +158,19 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-xs font-inter text-center">
-            © {new Date().getFullYear()} SS Morsel India Pvt. Ltd. All Rights Reserved.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col items-center gap-4">
+          <p className="text-gray-500 text-[10px] md:text-[11px] font-inter text-center leading-relaxed max-w-5xl opacity-70 italic">
+            Note: All client logos, trademarks, and brand names displayed on this website/document are the property of their respective owners. These logos are shown solely for the purpose of showcasing our previous work and professional associations. We have provided services to the respective clients where mentioned. The use of these logos does not imply any endorsement, partnership, or ownership unless explicitly stated.
           </p>
-          <div className="flex items-center gap-6">
-            <span className="text-gray-500 text-xs font-inter hover:text-secondary cursor-pointer transition-colors duration-300">Privacy Policy</span>
-            <span className="text-gray-500 text-xs font-inter hover:text-secondary cursor-pointer transition-colors duration-300">Terms of Service</span>
-            <span className="text-gray-500 text-xs font-inter hover:text-secondary cursor-pointer transition-colors duration-300">Sitemap</span>
+          <div className="w-full flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-4 gap-4">
+            <p className="text-gray-500 text-xs font-inter text-center">
+              © {new Date().getFullYear()} SS Morsel India Pvt. Ltd. All Rights Reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              <span className="text-gray-500 text-xs font-inter hover:text-secondary cursor-pointer transition-colors duration-300">Privacy Policy</span>
+              <span className="text-gray-500 text-xs font-inter hover:text-secondary cursor-pointer transition-colors duration-300">Terms of Service</span>
+              <span className="text-gray-500 text-xs font-inter hover:text-secondary cursor-pointer transition-colors duration-300">Sitemap</span>
+            </div>
           </div>
         </div>
       </div>

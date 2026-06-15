@@ -5,7 +5,7 @@ export const BRAND = {
   phone: '+91 96500 97704',
   email: 'info@ssmorsel.com',
   website: 'www.ssmorsel.com',
-  address: '1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002',
+  address: 'H.NO. 667, 1ST FLOOR, BEHIND EURO SCHOOL, SECTOR-10, Gurugram, Haryana 122001',
   workingHours: 'Mon - Sat: 9:00 AM - 7:00 PM',
   gst: '06AAGCS1234A1Z5',
   founded: '2015',

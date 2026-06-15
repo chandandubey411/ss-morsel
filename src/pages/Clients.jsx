@@ -289,9 +289,19 @@ const Clients = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="text-center text-gray-500 text-xs font-inter mt-12"
+            className="text-center text-gray-500 text-xs font-inter mt-12 mb-4"
           >
             Click any invoice to view full document
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.7 }}
+            className="text-center text-gray-500 text-[10px] md:text-xs font-inter leading-relaxed max-w-4xl mx-auto mt-6 opacity-75 italic"
+          >
+            Note: All client logos, trademarks, and brand names displayed on this website/document are the property of their respective owners. These logos are shown solely for the purpose of showcasing our previous work and professional associations. We have provided services to the respective clients where mentioned. The use of these logos does not imply any endorsement, partnership, or ownership unless explicitly stated.
           </motion.p>
         </div>
       </section>

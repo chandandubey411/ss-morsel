@@ -1,7 +1,7 @@
 export const testimonials = [
   {
     id: 1,
-    name: 'Rajesh Mehta',
+    name: 'Madhav',
     designation: 'Facilities Manager',
     company: 'Accenture India',
     review: 'SS Morsel delivered an exceptional office dismantling service for our Gurugram facility. Their team was professional, efficient, and ensured zero disruption to our operations. The entire 25,000 sq ft was cleared in just 15 days — ahead of schedule!',
@@ -37,7 +37,7 @@ export const testimonials = [
   },
   {
     id: 5,
-    name: 'Vikram Singh',
+    name: 'Santosh',
     designation: 'Admin Head',
     company: 'EY India',
     review: 'SS Morsel\'s e-waste management service is the best in the industry. Full regulatory compliance, MSTC certification, and zero hassle for our team. Will definitely use their services again.',

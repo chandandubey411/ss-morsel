@@ -71,7 +71,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold text-white font-poppins leading-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold text-white font-poppins leading-tight mb-6"
           >
             Get In{' '}
             <span className="text-[#1E824C]">
@@ -90,7 +90,7 @@ const Contact = () => {
       </section>
 
       {/* Content Section */}
-      <section className="section-padding bg-light">
+      <section className="section-padding bg-light overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12">
             

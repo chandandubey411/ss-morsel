@@ -36,7 +36,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold text-white font-poppins leading-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold text-white font-poppins leading-tight mb-6"
           >
             Comprehensive{' '}
             <span className="text-[#1E824C]">
@@ -55,7 +55,7 @@ const Services = () => {
       </section>
 
       {/* Services Detail */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
           {services.map((service, i) => (
             <motion.div

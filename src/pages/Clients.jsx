@@ -39,7 +39,7 @@ const Clients = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold text-white font-poppins leading-tight mb-4"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold text-white font-poppins leading-tight mb-4"
           >
             Our Trusted{' '}
             <span className="text-[#1E824C]">
@@ -51,7 +51,7 @@ const Clients = () => {
       </section>
 
       {/* Stats Bar */}
-      <section className="py-10" style={{ background: '#0B3D91' }}>
+      <section className="py-10 overflow-hidden" style={{ background: '#0B3D91' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
@@ -98,7 +98,7 @@ const Clients = () => {
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold font-poppins mb-4" style={{ color: '#081C3A' }}
+            className="text-2xl sm:text-3xl md:text-5xl font-bold font-poppins mb-4" style={{ color: '#081C3A' }}
           >
             Companies That <span style={{ color: '#1E824C' }}>Trust Us</span>
           </motion.h2>
@@ -186,7 +186,7 @@ const Clients = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold text-white font-poppins mb-4"
+              className="text-2xl sm:text-3xl md:text-5xl font-bold text-white font-poppins mb-4"
             >
               Client <span style={{ color: '#1E824C' }}>Deal Invoices</span>
             </motion.h2>

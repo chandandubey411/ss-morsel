@@ -114,7 +114,7 @@ const AboutPreview = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="absolute -bottom-8 -left-8 w-72 rounded-2xl p-5 shadow-2xl"
+              className="hidden md:block absolute -bottom-8 -left-8 w-72 rounded-2xl p-5 shadow-2xl"
               style={{
                 background: 'rgba(255,255,255,0.95)',
                 backdropFilter: 'blur(20px)',

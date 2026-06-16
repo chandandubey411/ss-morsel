@@ -159,7 +159,7 @@ const CertificatesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold font-poppins leading-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-7xl font-bold font-poppins leading-tight mb-6"
           >
             <span className="text-white">Corporate </span>
             <span style={{
@@ -208,7 +208,7 @@ const CertificatesPage = () => {
       </section>
 
       {/* ── Certificates Grid ── */}
-      <section className="py-24" style={{ background: 'linear-gradient(180deg, #F0F4FF 0%, #FFFFFF 100%)' }}>
+      <section className="py-24 overflow-hidden" style={{ background: 'linear-gradient(180deg, #F0F4FF 0%, #FFFFFF 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <motion.div
@@ -221,7 +221,7 @@ const CertificatesPage = () => {
               <FiShield size={14} className="text-blue-600" />
               <span className="text-blue-600 text-xs font-semibold tracking-widest uppercase font-inter">All Registrations</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold font-poppins text-[#060F2A] mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold font-poppins text-[#060F2A] mb-4">
               Our Official{' '}
               <span style={{
                 background: 'linear-gradient(90deg, #0B3D91, #1E824C)',
@@ -442,7 +442,7 @@ const CertificatesPage = () => {
       </section>
 
       {/* ── Trust Banner ── */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #060F2A 0%, #0B1E4A 100%)' }}>
+      <section className="py-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #060F2A 0%, #0B1E4A 100%)' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -461,7 +461,7 @@ const CertificatesPage = () => {
 
             <div className="relative z-10">
               <div className="text-4xl mb-4">🇮🇳</div>
-              <h3 className="text-3xl md:text-4xl font-bold font-poppins text-white mb-4">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-poppins text-white mb-4">
                 Fully Compliant & <span style={{ background: 'linear-gradient(90deg, #3B82F6, #10B981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Government Approved</span>
               </h3>
               <p className="text-gray-400 font-inter text-lg max-w-2xl mx-auto">

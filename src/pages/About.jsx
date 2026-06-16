@@ -46,7 +46,7 @@ const About = () => {
               <div className="w-2 h-2 rounded-full bg-secondary" />
               <span className="text-secondary text-xs font-semibold tracking-wider uppercase">About Us</span>
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white font-poppins leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white font-poppins leading-tight mb-6">
               India's Most Trusted<br />
               <span className="text-[#1E824C]">
                 Dismantling Partner
@@ -60,7 +60,7 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -93,7 +93,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="absolute -bottom-8 -left-8 w-72 rounded-2xl p-5 shadow-2xl"
+                className="hidden md:block absolute -bottom-8 -left-8 w-72 rounded-2xl p-5 shadow-2xl"
                 style={{ background: 'rgba(255,255,255,0.97)', border: '1px solid rgba(11,61,145,0.1)' }}
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -147,7 +147,7 @@ const About = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold font-poppins text-white leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-poppins text-white leading-tight"
             >
               Meet Our <span className="text-[#1E824C]">Director</span>
             </motion.h2>
@@ -167,7 +167,7 @@ const About = () => {
                 <div className="absolute -inset-1.5 rounded-3xl opacity-60"
                   style={{ background: 'linear-gradient(135deg, #1E824C, #0B3D91, #1E824C)' }}
                 />
-                <div className="relative rounded-3xl overflow-hidden w-[320px] h-[420px] md:w-[380px] md:h-[480px]">
+                <div className="relative rounded-3xl overflow-hidden w-full max-w-[320px] h-[420px] md:max-w-[380px] md:h-[480px]">
                   <img
                     src="/director.jpg"
                     alt="Sonu Kumar - Director, SS Morsel India"
@@ -185,14 +185,14 @@ const About = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
-                  className="absolute -bottom-5 -right-5 w-28 h-28 rounded-2xl flex flex-col items-center justify-center text-center"
+                  className="absolute -bottom-5 right-0 md:-right-5 w-24 h-24 md:w-28 md:h-28 rounded-2xl flex flex-col items-center justify-center text-center"
                   style={{
                     background: 'linear-gradient(135deg, #1E824C, #15633a)',
                     boxShadow: '0 8px 30px rgba(30,130,76,0.4)',
                   }}
                 >
-                  <span className="text-white font-bold text-3xl font-poppins leading-none">18+</span>
-                  <span className="text-white/80 text-[10px] font-inter mt-1 leading-tight">Years of<br />Experience</span>
+                  <span className="text-white font-bold text-2xl md:text-3xl font-poppins leading-none">18+</span>
+                  <span className="text-white/80 text-[9px] md:text-[10px] font-inter mt-1 leading-tight">Years of<br />Experience</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -206,7 +206,7 @@ const About = () => {
               className="space-y-6"
             >
               <div>
-                <h3 className="text-3xl md:text-4xl font-bold font-poppins text-white mb-1">Sonu Kumar</h3>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-poppins text-white mb-1">Sonu Kumar</h3>
                 <p className="text-[#1E824C] font-semibold font-inter text-lg">Director & Founder</p>
               </div>
 
@@ -264,7 +264,7 @@ const About = () => {
 
 
       {/* Vision & Mission */}
-      <section className="section-padding bg-light">
+      <section className="section-padding bg-light overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Mission Card */}
@@ -315,7 +315,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="section-padding bg-light">
+      <section className="section-padding bg-light overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <SectionHeading badge="Our Values" title="What We" highlight="Stand For" align="center" />
@@ -342,7 +342,7 @@ const About = () => {
       </section>
 
       {/* Milestones Timeline */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <SectionHeading badge="Our Journey" title="Key" highlight="Milestones" align="center" />

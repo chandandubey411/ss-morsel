@@ -1,0 +1,39 @@
+Options -MultiViews
+RewriteEngine On
+
+# -------------------------------------------------------
+# 301 Redirects: Old URL slugs → New React Router paths
+# -------------------------------------------------------
+RewriteRule ^about-us/?$ /about [R=301,L]
+RewriteRule ^about_us/?$ /about [R=301,L]
+RewriteRule ^who-we-are/?$ /about [R=301,L]
+RewriteRule ^why-ss-morsel/?$ /about [R=301,L]
+
+RewriteRule ^contact-us/?$ /contact [R=301,L]
+RewriteRule ^contact_us/?$ /contact [R=301,L]
+RewriteRule ^reach-us/?$ /contact [R=301,L]
+
+RewriteRule ^our-services/?$ /services [R=301,L]
+RewriteRule ^service/?$ /services [R=301,L]
+
+RewriteRule ^our-projects/?$ /projects [R=301,L]
+RewriteRule ^project/?$ /projects [R=301,L]
+RewriteRule ^portfolio/?$ /projects [R=301,L]
+
+RewriteRule ^our-gallery/?$ /gallery [R=301,L]
+RewriteRule ^photo-gallery/?$ /gallery [R=301,L]
+
+RewriteRule ^our-clients/?$ /clients [R=301,L]
+RewriteRule ^client/?$ /clients [R=301,L]
+
+RewriteRule ^certifications/?$ /certificates [R=301,L]
+RewriteRule ^certification/?$ /certificates [R=301,L]
+RewriteRule ^our-certificates/?$ /certificates [R=301,L]
+
+# -------------------------------------------------------
+# SPA Fallback: Serve index.html for all React routes
+# (must come AFTER the 301 redirects above)
+# -------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]

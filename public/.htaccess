@@ -105,7 +105,7 @@ RewriteRule ^wp-login\.php$ / [R=301,L]
 RewriteRule ^wp-admin/?$ / [R=301,L]
 RewriteRule ^wp-content/.*$ / [R=301,L]
 RewriteRule ^feed/?$ / [R=301,L]
-RewriteRule ^sitemap\.xml$ / [R=301,L]
+# sitemap.xml is a real file — served directly, no redirect needed
 RewriteRule ^category/.*$ / [R=301,L]
 RewriteRule ^tag/.*$ / [R=301,L]
 RewriteRule ^author/.*$ / [R=301,L]

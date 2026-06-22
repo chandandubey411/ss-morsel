@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block sensitive/non-content paths
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /dist/
+
+# Sitemap location — tells Google/Bing where to find it
+Sitemap: https://www.ssmorsel.com/sitemap.xml

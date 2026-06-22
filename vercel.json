@@ -3,19 +3,6 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
-    {
-      "source": "/",
-      "has": [{ "type": "host", "value": "www.ssmorsel.com" }],
-      "destination": "https://ssmorsel.com/",
-      "permanent": true
-    },
-    {
-      "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.ssmorsel.com" }],
-      "destination": "https://ssmorsel.com/:path",
-      "permanent": true
-    },
-
     { "source": "/home",                "destination": "/",             "permanent": true },
     { "source": "/index.php",           "destination": "/",             "permanent": true },
     { "source": "/index.html",          "destination": "/",             "permanent": true },

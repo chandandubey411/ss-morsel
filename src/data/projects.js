@@ -32,16 +32,16 @@ export const projects = [
   },
   {
     id: 3,
-    title: 'EY India IT Asset Disposal',
+    title: 'EY India Asset Disposal & Reinstatement',
     client: 'Ernst & Young',
     location: 'Gurugram, Haryana',
-    type: 'IT Asset Disposal',
+    type: 'Asset Disposal & Reinstatement',
     area: 'N/A',
     year: '2024',
     duration: '5 Days',
     image: eyOfficeImg,
-    description: 'Certified IT asset disposal for EY India including 500+ workstations with data destruction certificates at their Gurugram headquarters.',
-    tags: ['IT Asset Disposal'],
+    description: 'Asset Disposal & Reinstatement work for EY India — certified disposal of 500+ workstations with data destruction certificates and complete site reinstatement at their Gurugram headquarters.',
+    tags: ['Asset Disposal & Reinstatement'],
   },
   {
     id: 4,
@@ -114,6 +114,6 @@ export const projectFilters = [
   { label: 'All Projects', value: 'all' },
   { label: 'Office Dismantling', value: 'Office Dismantling' },
   { label: 'Bare Shelling', value: 'Bare Shelling' },
-  { label: 'IT Asset Disposal', value: 'IT Asset Disposal' },
+  { label: 'Asset Disposal & Reinstatement', value: 'Asset Disposal & Reinstatement' },
   { label: 'Reinstatement', value: 'Reinstatement' },
 ]

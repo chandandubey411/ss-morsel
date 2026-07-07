@@ -140,7 +140,7 @@ Eco-friendly disposal with full legal compliance. 📋`,
 
 We're here to help!
 * **Phone/WhatsApp:** +91 96506 28955
-* **Email:** info@ssmorsel.com
+* **Email:** admin@ssmorsel.com
 * **Head Office:** 1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002
 * **Working Hours:** Mon - Sat: 9:00 AM - 7:00 PM
 
@@ -298,7 +298,7 @@ Gurugram, Haryana - 122002, India.
     return `📞 **Contact SS Morsel India:**
 
 * **Phone/WhatsApp:** +91 96506 28955
-* **Email:** info@ssmorsel.com
+* **Email:** admin@ssmorsel.com
 * **Head Office:** 1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002
 * **Working Hours:** Mon - Sat: 9:00 AM - 7:00 PM
 
@@ -433,7 +433,7 @@ We offer highly competitive and transparent rates tailored to your project:
 2. **Transparent Quotation** — A detailed cost breakdown within 2 hours of inspection.
 3. **No Hidden Costs** — What we quote is what you pay.
 
-Contact us at **+91 96506 28955** or send a mail to **info@ssmorsel.com** to book a free site visit!`;
+Contact us at **+91 96506 28955** or send a mail to **admin@ssmorsel.com** to book a free site visit!`;
   }
 
   // 9. PROJECTS / PORTFOLIO
@@ -539,7 +539,7 @@ const AIChatbot = ({ activeChat, setActiveChat }) => {
         Here are the certified facts about SS Morsel India from the website. ONLY use these facts to answer the user:
         - Company Name: SS Morsel India Pvt. Ltd. (Founded: 2015)
         - Director & Founder: Mr. Sonu Kumar — 18+ years of experience in office dismantling and bare-shelling
-        - Contact: Phone/WhatsApp at +91 96506 28955, Email at info@ssmorsel.com
+        - Contact: Phone/WhatsApp at +91 96506 28955, Email at admin@ssmorsel.com
         - Head Office: 1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002
         - Working Hours: Mon - Sat: 9:00 AM - 7:00 PM
         - Core Services:

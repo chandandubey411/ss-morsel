@@ -112,9 +112,6 @@ const Clients = () => {
 
         {/* ── Platinum strip ── */}
         <div className="relative mb-8">
-          <div className="flex justify-center mb-5">
-            <span className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full text-xs font-bold font-poppins" style={{ background: 'rgba(11,61,145,0.09)', color: '#0B3D91', border: '1px solid rgba(11,61,145,0.18)' }}>🏆 Platinum Partners</span>
-          </div>
           <div className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none" style={{ background: 'linear-gradient(90deg, #f8faff, transparent)' }} />
           <div className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none" style={{ background: 'linear-gradient(270deg, #f8faff, transparent)' }} />
           <div className="overflow-hidden">
@@ -128,9 +125,6 @@ const Clients = () => {
 
         {/* ── Gold strip (reverse) ── */}
         <div className="relative mb-8">
-          <div className="flex justify-center mb-5">
-            <span className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full text-xs font-bold font-poppins" style={{ background: 'rgba(255,138,0,0.09)', color: '#d97706', border: '1px solid rgba(255,138,0,0.22)' }}>🥇 Gold Partners</span>
-          </div>
           <div className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none" style={{ background: 'linear-gradient(90deg, #eef2ff, transparent)' }} />
           <div className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none" style={{ background: 'linear-gradient(270deg, #eef2ff, transparent)' }} />
           <div className="overflow-hidden">
@@ -144,9 +138,6 @@ const Clients = () => {
 
         {/* ── Silver strip ── */}
         <div className="relative">
-          <div className="flex justify-center mb-5">
-            <span className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full text-xs font-bold font-poppins" style={{ background: 'rgba(107,114,128,0.09)', color: '#6b7280', border: '1px solid rgba(107,114,128,0.22)' }}>🥈 Silver Partners</span>
-          </div>
           <div className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none" style={{ background: 'linear-gradient(90deg, #f0f7f4, transparent)' }} />
           <div className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none" style={{ background: 'linear-gradient(270deg, #f0f7f4, transparent)' }} />
           <div className="overflow-hidden">

@@ -3,7 +3,7 @@ export const BRAND = {
   tagline: 'A leading Dismantling & Bare-shelling entity',
   shortName: 'SS Morsel',
   phone: '+91 96506 28955',
-  email: 'info@ssmorsel.com',
+  email: 'admin@ssmorsel.com',
   website: 'www.ssmorsel.com',
   address: '1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002',
   workingHours: 'Mon - Sat: 9:00 AM - 7:00 PM',

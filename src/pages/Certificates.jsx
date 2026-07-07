@@ -81,6 +81,24 @@ const certificates = [
     comingSoon: false,
   },
   {
+    id: 'iso',
+    tag: 'Audittech Certification Pvt. Ltd.',
+    tagColor: '#00695C',
+    title: 'ISO 9001:2015 Certificate',
+    number: 'Cert. No: E20260749695',
+    issuedBy: 'Audittech Certification Pvt. Ltd.',
+    issuedOn: '02 July 2026',
+    validity: 'Valid upto 01 July 2029',
+    status: 'Certified',
+    statusColor: '#00695C',
+    icon: '🏆',
+    gradient: 'linear-gradient(135deg, #00695C 0%, #00897B 100%)',
+    glowColor: 'rgba(0,105,92,0.3)',
+    image: '/iso_cert.png',
+    hasImage: true,
+    description: 'ISO 9001:2015 Quality Management Systems certification for providing office furniture dismantling, reinstatement, scrap dealing, bare shelling, and e-waste management services.',
+  },
+  {
     id: 'ppt',
     tag: 'Corporate Presentation',
     tagColor: '#1E824C',
@@ -103,7 +121,7 @@ const certificates = [
 
 /* ─── Stats ─── */
 const stats = [
-  { value: '5+', label: 'Corporate Credentials', icon: '🏅' },
+  { value: '6+', label: 'Corporate Credentials', icon: '🏅' },
   { value: '2015', label: 'Established Since', icon: '📅' },
   { value: '100%', label: 'Compliance Rate', icon: '✅' },
   { value: '200+', label: 'Corporate Clients', icon: '🏢' },
@@ -468,7 +486,7 @@ const CertificatesPage = () => {
                 SS Morsel India Pvt. Ltd. operates with full legal authorization under the Ministry of Corporate Affairs, MSME, GST, and MSTC.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                {['MCA Registered', 'GST Compliant', 'MSME Certified', 'MSTC Authorized'].map((tag, i) => (
+                {['MCA Registered', 'GST Compliant', 'MSME Certified', 'MSTC Authorized', 'ISO 9001:2015'].map((tag, i) => (
                   <motion.span
                     key={i}
                     initial={{ opacity: 0, scale: 0.8 }}

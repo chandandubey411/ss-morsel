@@ -1,0 +1,109 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "redirects": [
+    { "source": "/home",                "destination": "/",             "permanent": true },
+    { "source": "/index.php",           "destination": "/",             "permanent": true },
+    { "source": "/index.html",          "destination": "/",             "permanent": true },
+
+    { "source": "/about-us",            "destination": "/about",        "permanent": true },
+    { "source": "/about_us",            "destination": "/about",        "permanent": true },
+    { "source": "/who-we-are",          "destination": "/about",        "permanent": true },
+    { "source": "/why-ss-morsel",       "destination": "/about",        "permanent": true },
+    { "source": "/company",             "destination": "/about",        "permanent": true },
+    { "source": "/company-profile",     "destination": "/about",        "permanent": true },
+    { "source": "/overview",            "destination": "/about",        "permanent": true },
+
+    { "source": "/contact-us",          "destination": "/contact",      "permanent": true },
+    { "source": "/contact_us",          "destination": "/contact",      "permanent": true },
+    { "source": "/reach-us",            "destination": "/contact",      "permanent": true },
+    { "source": "/get-in-touch",        "destination": "/contact",      "permanent": true },
+    { "source": "/enquiry",             "destination": "/contact",      "permanent": true },
+    { "source": "/inquiry",             "destination": "/contact",      "permanent": true },
+    { "source": "/reach-out",           "destination": "/contact",      "permanent": true },
+
+    { "source": "/our-services",        "destination": "/services",     "permanent": true },
+    { "source": "/service",             "destination": "/services",     "permanent": true },
+    { "source": "/services-offered",    "destination": "/services",     "permanent": true },
+    { "source": "/what-we-do",          "destination": "/services",     "permanent": true },
+    { "source": "/offerings",           "destination": "/services",     "permanent": true },
+    { "source": "/office-dismantling",  "destination": "/services",     "permanent": true },
+    { "source": "/bare-shelling",       "destination": "/services",     "permanent": true },
+    { "source": "/reinstatement",       "destination": "/services",     "permanent": true },
+    { "source": "/it-asset-disposal",   "destination": "/services",     "permanent": true },
+    { "source": "/scrap-purchasing",    "destination": "/services",     "permanent": true },
+    { "source": "/e-waste",             "destination": "/services",     "permanent": true },
+    { "source": "/ewaste",              "destination": "/services",     "permanent": true },
+
+    { "source": "/our-projects",        "destination": "/projects",     "permanent": true },
+    { "source": "/project",             "destination": "/projects",     "permanent": true },
+    { "source": "/portfolio",           "destination": "/projects",     "permanent": true },
+    { "source": "/work",                "destination": "/projects",     "permanent": true },
+    { "source": "/case-studies",        "destination": "/projects",     "permanent": true },
+    { "source": "/completed-projects",  "destination": "/projects",     "permanent": true },
+
+    { "source": "/our-gallery",         "destination": "/gallery",      "permanent": true },
+    { "source": "/photo-gallery",       "destination": "/gallery",      "permanent": true },
+    { "source": "/photos",              "destination": "/gallery",      "permanent": true },
+    { "source": "/images",              "destination": "/gallery",      "permanent": true },
+    { "source": "/media",               "destination": "/gallery",      "permanent": true },
+
+    { "source": "/our-clients",         "destination": "/clients",      "permanent": true },
+    { "source": "/client",              "destination": "/clients",      "permanent": true },
+    { "source": "/clientele",           "destination": "/clients",      "permanent": true },
+    { "source": "/partners",            "destination": "/clients",      "permanent": true },
+    { "source": "/trusted-clients",     "destination": "/clients",      "permanent": true },
+
+    { "source": "/certifications",      "destination": "/certificates", "permanent": true },
+    { "source": "/certification",       "destination": "/certificates", "permanent": true },
+    { "source": "/our-certificates",    "destination": "/certificates", "permanent": true },
+    { "source": "/accreditations",      "destination": "/certificates", "permanent": true },
+    { "source": "/awards",              "destination": "/certificates", "permanent": true },
+    { "source": "/iso",                 "destination": "/certificates", "permanent": true },
+    { "source": "/mstc",                "destination": "/certificates", "permanent": true },
+
+    { "source": "/wp-login.php",        "destination": "/",             "permanent": true },
+    { "source": "/wp-admin",            "destination": "/",             "permanent": true },
+    { "source": "/wp-content/(.*)",     "destination": "/",             "permanent": true },
+    { "source": "/feed",                "destination": "/",             "permanent": true },
+    { "source": "/blog",                "destination": "/",             "permanent": true },
+    { "source": "/news",                "destination": "/",             "permanent": true },
+    { "source": "/category/(.*)",       "destination": "/",             "permanent": true },
+    { "source": "/tag/(.*)",            "destination": "/",             "permanent": true },
+    { "source": "/author/(.*)",         "destination": "/",             "permanent": true },
+    { "source": "/page/(.*)",           "destination": "/",             "permanent": true },
+    { "source": "/privacy-policy",      "destination": "/",             "permanent": true },
+    { "source": "/terms-and-conditions","destination": "/",             "permanent": true },
+    { "source": "/disclaimer",          "destination": "/",             "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",   "value": "nosniff" },
+        { "key": "X-Frame-Options",           "value": "SAMEORIGIN" },
+        { "key": "X-XSS-Protection",          "value": "1; mode=block" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control",               "value": "public, max-age=31536000, immutable" },
+        { "key": "Access-Control-Allow-Origin",  "value": "*" }
+      ]
+    },
+    {
+      "source": "/logo.jpg",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ]
+}

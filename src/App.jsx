@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
@@ -65,6 +65,19 @@ function App() {
               <Route path="/clients" element={<Clients />} />
               <Route path="/certificates" element={<Certificates />} />
               <Route path="/contact" element={<Contact />} />
+              {/* ── Old URL redirects (mirrors .htaccess 301 rules) ── */}
+              <Route path="/contact-us" element={<Navigate to="/contact" replace />} />
+              <Route path="/contact-us/" element={<Navigate to="/contact" replace />} />
+              <Route path="/contact_us" element={<Navigate to="/contact" replace />} />
+              <Route path="/about-us" element={<Navigate to="/about" replace />} />
+              <Route path="/about_us" element={<Navigate to="/about" replace />} />
+              <Route path="/who-we-are" element={<Navigate to="/about" replace />} />
+              <Route path="/our-services" element={<Navigate to="/services" replace />} />
+              <Route path="/our-projects" element={<Navigate to="/projects" replace />} />
+              <Route path="/our-gallery" element={<Navigate to="/gallery" replace />} />
+              <Route path="/our-clients" element={<Navigate to="/clients" replace />} />
+              <Route path="/certifications" element={<Navigate to="/certificates" replace />} />
+              <Route path="/our-certificates" element={<Navigate to="/certificates" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

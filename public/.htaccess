@@ -2,38 +2,124 @@ Options -MultiViews
 RewriteEngine On
 
 # -------------------------------------------------------
-# 301 Redirects: Old URL slugs → New React Router paths
+# FORCE WWW → non-WWW (pick one, be consistent)
+# -------------------------------------------------------
+# RewriteCond %{HTTP_HOST} ^www\.ssmorsel\.com [NC]
+# RewriteRule ^(.*)$ https://ssmorsel.com/$1 [R=301,L]
+
+# -------------------------------------------------------
+# FORCE HTTPS
+# -------------------------------------------------------
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# -------------------------------------------------------
+# 301 Redirects — HOME page old variants
+# -------------------------------------------------------
+RewriteRule ^home/?$ / [R=301,L]
+RewriteRule ^index\.php/?$ / [R=301,L]
+RewriteRule ^index\.html/?$ / [R=301,L]
+
+# -------------------------------------------------------
+# 301 Redirects — ABOUT old URL slugs
 # -------------------------------------------------------
 RewriteRule ^about-us/?$ /about [R=301,L]
 RewriteRule ^about_us/?$ /about [R=301,L]
 RewriteRule ^who-we-are/?$ /about [R=301,L]
 RewriteRule ^why-ss-morsel/?$ /about [R=301,L]
+RewriteRule ^company/?$ /about [R=301,L]
+RewriteRule ^company-profile/?$ /about [R=301,L]
+RewriteRule ^overview/?$ /about [R=301,L]
 
+# -------------------------------------------------------
+# 301 Redirects — CONTACT old URL slugs
+# -------------------------------------------------------
 RewriteRule ^contact-us/?$ /contact [R=301,L]
 RewriteRule ^contact_us/?$ /contact [R=301,L]
 RewriteRule ^reach-us/?$ /contact [R=301,L]
+RewriteRule ^get-in-touch/?$ /contact [R=301,L]
+RewriteRule ^enquiry/?$ /contact [R=301,L]
+RewriteRule ^inquiry/?$ /contact [R=301,L]
+RewriteRule ^reach-out/?$ /contact [R=301,L]
 
+# -------------------------------------------------------
+# 301 Redirects — SERVICES old URL slugs
+# -------------------------------------------------------
 RewriteRule ^our-services/?$ /services [R=301,L]
 RewriteRule ^service/?$ /services [R=301,L]
+RewriteRule ^services-offered/?$ /services [R=301,L]
+RewriteRule ^what-we-do/?$ /services [R=301,L]
+RewriteRule ^offerings/?$ /services [R=301,L]
+RewriteRule ^office-dismantling/?$ /services [R=301,L]
+RewriteRule ^bare-shelling/?$ /services [R=301,L]
+RewriteRule ^reinstatement/?$ /services [R=301,L]
+RewriteRule ^it-asset-disposal/?$ /services [R=301,L]
+RewriteRule ^scrap-purchasing/?$ /services [R=301,L]
+RewriteRule ^e-waste/?$ /services [R=301,L]
+RewriteRule ^ewaste/?$ /services [R=301,L]
 
+# -------------------------------------------------------
+# 301 Redirects — PROJECTS old URL slugs
+# -------------------------------------------------------
 RewriteRule ^our-projects/?$ /projects [R=301,L]
 RewriteRule ^project/?$ /projects [R=301,L]
 RewriteRule ^portfolio/?$ /projects [R=301,L]
+RewriteRule ^work/?$ /projects [R=301,L]
+RewriteRule ^case-studies/?$ /projects [R=301,L]
+RewriteRule ^completed-projects/?$ /projects [R=301,L]
 
+# -------------------------------------------------------
+# 301 Redirects — GALLERY old URL slugs
+# -------------------------------------------------------
 RewriteRule ^our-gallery/?$ /gallery [R=301,L]
 RewriteRule ^photo-gallery/?$ /gallery [R=301,L]
+RewriteRule ^photos/?$ /gallery [R=301,L]
+RewriteRule ^images/?$ /gallery [R=301,L]
+RewriteRule ^media/?$ /gallery [R=301,L]
 
+# -------------------------------------------------------
+# 301 Redirects — CLIENTS old URL slugs
+# -------------------------------------------------------
 RewriteRule ^our-clients/?$ /clients [R=301,L]
 RewriteRule ^client/?$ /clients [R=301,L]
+RewriteRule ^clientele/?$ /clients [R=301,L]
+RewriteRule ^partners/?$ /clients [R=301,L]
+RewriteRule ^trusted-clients/?$ /clients [R=301,L]
 
+# -------------------------------------------------------
+# 301 Redirects — CERTIFICATES old URL slugs
+# -------------------------------------------------------
 RewriteRule ^certifications/?$ /certificates [R=301,L]
 RewriteRule ^certification/?$ /certificates [R=301,L]
 RewriteRule ^our-certificates/?$ /certificates [R=301,L]
+RewriteRule ^accreditations/?$ /certificates [R=301,L]
+RewriteRule ^awards/?$ /certificates [R=301,L]
+RewriteRule ^iso/?$ /certificates [R=301,L]
+RewriteRule ^mstc/?$ /certificates [R=301,L]
+
+# -------------------------------------------------------
+# WordPress/old CMS leftover URLs — redirect to home
+# (These cause 404 if not handled)
+# -------------------------------------------------------
+RewriteRule ^wp-login\.php$ / [R=301,L]
+RewriteRule ^wp-admin/?$ / [R=301,L]
+RewriteRule ^wp-content/.*$ / [R=301,L]
+RewriteRule ^feed/?$ / [R=301,L]
+# sitemap.xml is a real file — served directly, no redirect needed
+RewriteRule ^category/.*$ / [R=301,L]
+RewriteRule ^tag/.*$ / [R=301,L]
+RewriteRule ^author/.*$ / [R=301,L]
+RewriteRule ^page/.*$ / [R=301,L]
+RewriteRule ^blog/?$ / [R=301,L]
+RewriteRule ^news/?$ / [R=301,L]
+RewriteRule ^privacy-policy/?$ / [R=301,L]
+RewriteRule ^terms-and-conditions/?$ / [R=301,L]
+RewriteRule ^disclaimer/?$ / [R=301,L]
 
 # -------------------------------------------------------
 # SPA Fallback: Serve index.html for all React routes
-# (must come AFTER the 301 redirects above)
+# (MUST come AFTER all the 301 redirects above)
 # -------------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [QSA,L]
+RewriteRule ^ index.html [QSA,L]

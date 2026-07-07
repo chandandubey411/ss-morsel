@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiPhone, FiMail, FiMapPin, FiClock, FiSend, FiCheckCircle } from 'react-icons/fi'
+import { FiPhone, FiMail, FiMapPin, FiClock, FiSend, FiCheckCircle, FiAlertCircle } from 'react-icons/fi'
 import PageTransition from '../components/layout/PageTransition'
 import SectionHeading from '../components/common/SectionHeading'
 import { BRAND } from '../utils/constants'
+
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,23 +19,54 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(null)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate API request
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitted(true)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: 'Office Dismantling',
-        message: '',
+    setError(null)
+
+    try {
+      const payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: `New Enquiry: ${formData.service} — ${formData.name}`,
+        from_name: 'SS Morsel Website',
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company || 'Not provided',
+        service: formData.service,
+        message: formData.message,
+        // Botcheck honeypot (spam protection)
+        botcheck: '',
+      }
+
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
       })
-    }, 1500)
+
+      const data = await res.json()
+
+      if (data.success) {
+        setSubmitted(true)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: 'Office Dismantling',
+          message: '',
+        })
+      } else {
+        setError(data.message || 'Something went wrong. Please try again.')
+      }
+    } catch (err) {
+      setError('Network error. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e) => {
@@ -42,6 +75,7 @@ const Contact = () => {
       [e.target.name]: e.target.value,
     })
   }
+
 
   return (
     <PageTransition>
@@ -257,6 +291,9 @@ const Contact = () => {
                         />
                       </div>
 
+                      {/* Honeypot spam protection */}
+                      <input type="checkbox" name="botcheck" className="hidden" />
+
                       <button
                         type="submit"
                         disabled={isSubmitting}
@@ -272,6 +309,19 @@ const Contact = () => {
                           </>
                         )}
                       </button>
+
+                      {/* Error Message */}
+                      {error && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="flex items-center gap-3 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700"
+                        >
+                          <FiAlertCircle className="flex-shrink-0" size={18} />
+                          <p className="text-sm font-inter">{error}</p>
+                        </motion.div>
+                      )}
+
                     </motion.form>
                   )}
                 </AnimatePresence>

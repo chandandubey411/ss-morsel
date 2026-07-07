@@ -43,4 +43,15 @@ export const certificates = [
     image: '/mstc_card.png',
     badge: '🪪',
   },
+  {
+    id: 4,
+    title: 'ISO 9001:2015 Certified',
+    subtitle: 'Quality Management System',
+    description: 'Certified for ISO 9001:2015 Quality Management System — demonstrating commitment to consistent quality, customer satisfaction, and continual improvement in e-waste management services.',
+    issuer: 'International Organization for Standardization',
+    year: '2023',
+    validity: 'Active',
+    image: '/iso_cert.png',
+    badge: '🏅',
+  },
 ]

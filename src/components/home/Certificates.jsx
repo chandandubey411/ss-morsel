@@ -10,6 +10,7 @@ const certColors = [
   { accent: '#1E824C', light: 'rgba(30,130,76,0.08)',   glow: 'rgba(30,130,76,0.18)'   }, // GST — Green
   { accent: '#C0392B', light: 'rgba(192,57,43,0.08)',   glow: 'rgba(192,57,43,0.18)'   }, // MSME — Red
   { accent: '#0077B6', light: 'rgba(0,119,182,0.08)',   glow: 'rgba(0,119,182,0.18)'   }, // MSTC — Blue
+  { accent: '#B8860B', light: 'rgba(184,134,11,0.08)',  glow: 'rgba(184,134,11,0.18)'  }, // ISO  — Gold
 ]
 
 const Certificates = () => {
@@ -152,7 +153,7 @@ const Certificates = () => {
           transition={{ delay: 0.4 }}
           className="mt-12 flex flex-wrap justify-center gap-3"
         >
-          {['MCA Registered', 'GST Compliant', 'MSME Certified', 'MSTC Authorized'].map((tag, i) => (
+          {['MCA Registered', 'GST Compliant', 'MSME Certified', 'MSTC Authorized', 'ISO 9001:2015'].map((tag, i) => (
             <span
               key={i}
               className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold font-inter"

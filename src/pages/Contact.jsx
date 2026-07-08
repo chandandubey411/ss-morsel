@@ -141,7 +141,7 @@ const Contact = () => {
               <div className="space-y-6">
                 {[
                   { icon: FiPhone, title: 'Call/WhatsApp', content: BRAND.phone, sub: 'Direct line to CEO & Sales' },
-                  { icon: FiMail, title: 'Email Address', content: BRAND.email, sub: 'For proposals and RFPs' },
+                  { icon: FiMail, title: 'Email Address', content: `${BRAND.email} / ${BRAND.email2}`, sub: 'For proposals and RFPs' },
                   { icon: FiMapPin, title: 'Head Office Address', content: BRAND.address, sub: 'Visit our operations center' },
                   { icon: FiClock, title: 'Working Hours', content: BRAND.workingHours, sub: 'Sunday: Closed' },
                 ].map((item, idx) => (

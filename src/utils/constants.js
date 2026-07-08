@@ -4,6 +4,7 @@ export const BRAND = {
   shortName: 'SS Morsel',
   phone: '+91 96506 28955',
   email: 'admin@ssmorsel.com',
+  email2: 'Info@ssmorsel.com',
   website: 'www.ssmorsel.com',
   address: '1st Floor, Old Bhagat Singh Complex, near Furniture Market, DLF City, Sikanderpur, DLF Phase 3, Sector 24, Gurugram, Haryana 122002',
   workingHours: 'Mon - Sat: 9:00 AM - 7:00 PM',

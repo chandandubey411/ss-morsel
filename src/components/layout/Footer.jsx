@@ -133,6 +133,12 @@ const Footer = () => {
                 </div>
                 <span className="text-gray-400 group-hover:text-secondary text-sm font-inter transition-colors duration-300">{BRAND.email}</span>
               </a>
+              <a href={`mailto:${BRAND.email2}`} className="flex items-center gap-3 group">
+                <div className="w-8 h-8 rounded-lg bg-primary/30 flex items-center justify-center flex-shrink-0">
+                  <FiMail className="text-secondary text-sm" />
+                </div>
+                <span className="text-gray-400 group-hover:text-secondary text-sm font-inter transition-colors duration-300">{BRAND.email2}</span>
+              </a>
             </div>
 
             {/* Newsletter */}
